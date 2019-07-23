@@ -18,6 +18,13 @@ build:
   license-banner: true
   out: *distDirs
   umd-name: @aloreljs/rxutils
+  skip-package-fields: true
+  targets:
+    - esm5
+    - fesm5
+    - fesm2015
+    - esm2015
+    - umd
   externals:
     - tslib
     - rxjs

@@ -21,7 +21,9 @@
     "tslint:fix": "npm --scripts-prepend-node-path=auto run tslint -- --fix",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "npm --scripts-prepend-node-path=auto run typecheck -- --watch",
-    "build": "alo build"
+    "build:cjs": "alo build --targets cjs declaration",
+    "build:esm": "alo build",
+    "build": "npm --scripts-prepend-node-path=auto run build:cjs && npm --scripts-prepend-node-path=auto run build:esm"
   },
   "repository": "git@github.com:Alorel/rxutils.git",
   "devDependencies": {
