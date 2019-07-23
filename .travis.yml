@@ -3,29 +3,29 @@ node_js:
   - stable
   - lts/dubnium
 before_install:
-  - 'npm i -g yarn greenkeeper-lockfile'
+  - npm i -g yarn greenkeeper-lockfile
   - greenkeeper-lockfile-update
-install: 'yarn install --check-files'
+install: yarn install --check-files
 script:
-  - 'yarn run tslint'
-  - 'yarn run typecheck'
-  - 'yarn test --forbid-only --forbid-pending'
-after_script: 'if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;'
-after_success: 'cat ./coverage/lcov.info | coveralls'
+  - yarn run tslint
+  - yarn run typecheck
+  - npm test -- --forbid-only --forbid-pending
+after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
+after_success: cat ./coverage/lcov.info | coveralls
 cache:
   yarn: true
 stages:
   - Test
   - name: Release
-    if: 'branch = master AND type = push AND (NOT tag IS present)'
+    if: branch = master AND type = push AND (NOT tag IS present)
 jobs:
   include:
     - stage: Release
       node_js: stable
-      before_install: 'npm i -g yarn'
+      before_install: npm i -g yarn
       before_script:
-        - 'yarn run build'
-        - 'alo copy-files'
+        - yarn run build
+        - alo copy-files
       script: semantic-release
       after_success: []
       after_script: []

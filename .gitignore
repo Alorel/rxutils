@@ -7,3 +7,5 @@ yarn-error.log
 *.tgz
 /.alobuild-tsconfig-*.json
 package-lock.json
+/tmp.ts
+/test/operators/index.ts

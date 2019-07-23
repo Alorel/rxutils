@@ -25,7 +25,6 @@ prepare:
       - README.md
       - package.json
       - yarn.lock
-      - .tsbuildinfo
 
 publish:
   - path: *npm
