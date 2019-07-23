@@ -5,7 +5,6 @@ import {innerMap} from '../../src/operators/innerMap';
 
 describe('operators/innerMap', () => {
   it('basic usage', cb => {
-    expect(1).to.equal
     of([1, 2, 3])
       .pipe(
         innerMap<number, number>(i => i * 2),

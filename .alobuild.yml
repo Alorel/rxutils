@@ -22,3 +22,6 @@ build:
     - tslib
     - rxjs
     - rxjs/operators
+    - lodash
+    - lodash/isEqual
+    - lodash-es

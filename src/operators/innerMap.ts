@@ -1,8 +1,6 @@
 import {OperatorFunction} from 'rxjs';
 import {map} from 'rxjs/operators';
-
-/** Callback for Array.prototype.map */
-type ArrayMapFn<I, O> = (item: I, index: number, array: I[]) => O;
+import {ArrayMapFn} from '../types/ArrayMapFn';
 
 /**
  * An rxjs map operator that performs Array.prototype.map on the input array.
