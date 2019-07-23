@@ -1,0 +1,61 @@
+{
+  "name": "@aloreljs/rxutils",
+  "version": "0.0.1",
+  "description": "Utility functions for rxjs",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "rxjs",
+    "pipe",
+    "operator",
+    "utils"
+  ],
+  "scripts": {
+    "pretest": "rimraf coverage",
+    "test": "nyc mocha --opts ./mocha.opts",
+    "test:watch": "npm --scripts-prepend-node-path=auto run test -- --watch",
+    "tslint": "alo tslint -p tsconfig.test.json",
+    "tslint:fix": "npm --scripts-prepend-node-path=auto run tslint -- --fix",
+    "typecheck": "tsc --noEmit",
+    "typecheck:watch": "npm --scripts-prepend-node-path=auto run typecheck -- --watch",
+    "build": "alo build"
+  },
+  "repository": "git@github.com:Alorel/rxutils.git",
+  "devDependencies": {
+    "@alorel-personal/build-tools": "4.5.16",
+    "@alorel-personal/conventional-changelog-alorel": "2.1.1",
+    "@alorel-personal/semantic-release": "1.4.0",
+    "@alorel-personal/tslint-rules": "5.0.5",
+    "@semantic-release/changelog": "~3.0.4",
+    "@semantic-release/exec": "~3.3.5",
+    "@semantic-release/git": "~7.0.16",
+    "@types/chai": "~4.1.7",
+    "@types/mocha": "~5.2.7",
+    "@types/node": "~12.6.8",
+    "chai": "~4.2.0",
+    "coveralls": "~3.0.5",
+    "mocha": "~6.2.0",
+    "nyc": "~14.1.1",
+    "rimraf": "~2.6.3",
+    "semantic-release": "~15.13.18",
+    "source-map-support": "~0.5.12",
+    "ts-node": "~8.3.0",
+    "tslib": "~1.10.0",
+    "typescript": "~3.5.3"
+  },
+  "peerDependencies": {
+    "tslib": "^1.6.0"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "browser": "_bundle/umd.js",
+  "jsdelivr": "_bundle/umd.min.js",
+  "fesm5": "_bundle/fesm5.js",
+  "esm5": "_bundle/esm5/index.js",
+  "fesm2015": "_bundle/fesm2015.js",
+  "esm2015": "_bundle/esm2015/index.js",
+  "types": "index.d.ts",
+  "module": "_bundle/fesm5.js",
+  "typings": "index.d.ts"
+}
