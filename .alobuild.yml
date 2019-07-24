@@ -16,15 +16,18 @@ copy-files:
 build:
   entry: src-esm/index.ts
   license-banner: true
-  out: dist/esm
+  out: *distDirs
   umd-name: @aloreljs/rxutils
   skip-package-fields: true
+  skip-clean: true
   targets:
     - esm5
+    - fesm5
     - esm2015
+    - fesm2015
+    - umd
   externals:
     - tslib
     - rxjs
     - rxjs/operators
-    - lodash-es
     - lodash-es/isEqual

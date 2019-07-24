@@ -20,7 +20,7 @@ function processFile(file: SourceFile): void {
       continue;
     }
 
-    statements[i] = <any>`import ${match[1]} from 'lodash/${match[1]}';`;
+    statements[i] = <any>`import ${match[1]} from 'lodash-es/${match[1]}';`;
     needsWrite = true;
   }
 

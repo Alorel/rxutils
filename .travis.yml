@@ -24,7 +24,7 @@ jobs:
       node_js: stable
       before_install: npm i -g yarn
       before_script:
-        - yarn run build
+        - npm run build
         - alo copy-files
       script: semantic-release
       after_success: []

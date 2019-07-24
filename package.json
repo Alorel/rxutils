@@ -21,17 +21,19 @@
     "tslint:fix": "npm --scripts-prepend-node-path=auto run tslint -- --fix",
     "typecheck": "tsc --noEmit",
     "typecheck:watch": "npm --scripts-prepend-node-path=auto run typecheck -- --watch",
-    "build:cjs": "alo build --targets cjs declaration --tsconfig tsconfig.cjs.json --entry src-esm/index.ts --out dist/cjs",
+    "build:cjs": "alo build --targets cjs declaration --tsconfig tsconfig.cjs.json --entry src/index.ts",
     "rm:esm-build": "rimraf src-esm",
     "cp:esm-build": "alo copy-files --from src/* --to src-esm",
     "build:esm:prepare": "ts-node prepare-es-build.ts",
     "prebuild:esm": "npm run rm:esm-build && npm run cp:esm-build && npm run build:esm:prepare",
+    "postbuild:esm": "npm run rm:esm-build",
     "build:esm": "alo build",
-    "build": "npm --scripts-prepend-node-path=auto run build:cjs && npm --scripts-prepend-node-path=auto run build:esm"
+    "prebuild": "rimraf dist",
+    "build": "concurrently \"npm:build:*\""
   },
   "repository": "git@github.com:Alorel/rxutils.git",
   "devDependencies": {
-    "@alorel-personal/build-tools": "4.6.0",
+    "@alorel-personal/build-tools": "4.7.0",
     "@alorel-personal/conventional-changelog-alorel": "2.1.1",
     "@alorel-personal/semantic-release": "1.4.0",
     "@alorel-personal/tslint-rules": "5.0.5",
