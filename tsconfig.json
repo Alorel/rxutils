@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "module": "commonjs",
     "strictBindCallApply": true,
     "target": "es5",
@@ -25,9 +26,10 @@
     "outDir": "dist"
   },
   "include": [
-    "src"
+    "src-esm"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src"
   ]
 }
