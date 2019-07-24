@@ -8,7 +8,7 @@ before_install:
 install: yarn install --check-files
 script:
   - yarn run tslint
-  - yarn run typecheck
+  - npm run build
   - npm test -- --forbid-only --forbid-pending
 after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
 after_success: cat ./coverage/lcov.info | coveralls
