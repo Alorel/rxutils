@@ -3,7 +3,6 @@
 --full-trace
 -r ts-node/register
 -r source-map-support/register
--t 20000
 --recursive
 --extension ts
 test
