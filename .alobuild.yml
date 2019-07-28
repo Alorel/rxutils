@@ -25,9 +25,8 @@ build:
     - fesm5
     - esm2015
     - fesm2015
-    - umd
   externals:
     - tslib
     - rxjs
     - rxjs/operators
-    - lodash-es/isEqual
+    - lodash-es
