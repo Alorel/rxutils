@@ -19,7 +19,7 @@
     "test:watch": "npm --scripts-prepend-node-path=auto run test -- --watch",
     "tslint": "alo tslint -p tsconfig.test.json",
     "tslint:fix": "npm --scripts-prepend-node-path=auto run tslint -- --fix",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit -p tsconfig.cjs.json",
     "typecheck:watch": "npm --scripts-prepend-node-path=auto run typecheck -- --watch",
     "build:cjs": "alo build --targets cjs declaration --tsconfig tsconfig.cjs.json --entry src/index.ts",
     "rm:esm-build": "rimraf src-esm",

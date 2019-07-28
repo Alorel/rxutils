@@ -26,12 +26,8 @@ function handler(source: Observable<any>, subscriber: Subscriber<number>, emitIn
       () => {
         subscriber.next(++numEmissions);
       },
-      err => {
-        subscriber.error(err);
-      },
-      () => {
-        subscriber.complete();
-      }
+      subscriber.error.bind(subscriber),
+      subscriber.complete.bind(subscriber)
     )
   );
 }
