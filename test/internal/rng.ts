@@ -14,7 +14,7 @@ describe('internal/rng', () => {
 
   it('Should throw if lower > upper', () => {
     expect(() => rng(2, 1)).to
-      .throw(Error, 'Lower bound is greater than upper bound');
+      .throw(Error, 'Upper is less than lower');
   });
 
   it('Should return 1st argument if arg1 === arg2', () => {

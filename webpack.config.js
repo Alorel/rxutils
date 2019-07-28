@@ -30,6 +30,7 @@ function conf(prod) {
       rxjs: 'rxjs',
       'rxjs/operators': ['rxjs', 'operators'],
       'lodash/pick': ['_', 'pick'],
+      'lodash/get': ['_', 'get'],
       'lodash/isObject': ['_', 'isObject'],
       'lodash/isEqual': ['_', 'isEqual']
     },
