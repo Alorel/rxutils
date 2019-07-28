@@ -10,3 +10,4 @@ yarn-error.log
 package-lock.json
 /tmp.ts
 /test/operators/index.ts
+/test/index.ts
