@@ -33,7 +33,7 @@ for (const op of operatorNames) {
 }
 
 const outLines = [
-  '//tslint:disable:ordered-imports',
+  '//tslint:disable',
   '',
   ...imports,
   '',
