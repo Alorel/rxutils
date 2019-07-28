@@ -1,6 +1,5 @@
 const fs = require('fs-extra');
 const Bluebird = require('bluebird');
-const {join} = require('path');
 const glob = require('glob');
 
 const regImport = /import\s+([a-zA-Z]+)\s+=\s+require\s*\(\s*['"]lodash\/[a-zA-Z]+['"]\s*\)\s*;?/g;
