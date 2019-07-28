@@ -15,6 +15,17 @@ const license = (() => {
   ].join('\n')
 })();
 
+function lodashDep(name) {
+  return {
+    [`lodash/${name}`]: {
+      commonjs: `lodash/${name}`,
+      commonjs2: `lodash/${name}`,
+      amd: `lodash/${name}`,
+      root: ['_', name]
+    }
+  }
+}
+
 function conf(prod) {
   const base = {
     target: 'web',
@@ -22,17 +33,33 @@ function conf(prod) {
     entry: join(__dirname, 'src', 'index.ts'),
     devtool: false,
     output: {
+      library: '@aloreljs/rxutils',
+      libraryTarget: 'umd',
       path: basedir,
       filename: prod ? 'umd.min.js' : 'umd.js'
     },
     externals: {
-      lodash: '_',
-      rxjs: 'rxjs',
-      'rxjs/operators': ['rxjs', 'operators'],
-      'lodash/pick': ['_', 'pick'],
-      'lodash/get': ['_', 'get'],
-      'lodash/isObject': ['_', 'isObject'],
-      'lodash/isEqual': ['_', 'isEqual']
+      lodash: {
+        commonjs: 'lodash',
+        commonjs2: 'lodash',
+        amd: 'lodash',
+        root: '_'
+      },
+      rxjs: {
+        commonjs: 'rxjs',
+        commonjs2: 'rxjs',
+        amd: 'rxjs',
+        root: 'rxjs'
+      },
+      'rxjs/operators': {
+        commonjs: 'rxjs/operators',
+        commonjs2: 'rxjs/operators',
+        amd: 'rxjs/operators',
+        root: ['rxjs', 'operators']
+      },
+      ...lodashDep('pick'),
+      ...lodashDep('isObject'),
+      ...lodashDep('isEqual')
     },
     resolve: {
       extensions: ['.ts', '.js'],
@@ -47,10 +74,7 @@ function conf(prod) {
             transpileOnly: true,
             configFile: 'tsconfig.cjs.json',
             context: __dirname,
-            colors: true,
-            compilerOptions: {
-              module: 'es2015'
-            }
+            colors: true
           }
         }]
       }]
