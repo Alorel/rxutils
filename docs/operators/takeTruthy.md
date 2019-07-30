@@ -6,7 +6,7 @@
 Shorthand for <code>source.pipe(filter(v => !!v), take(num))</code>
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-numToTake | Number of emissions to take. Passed on to rxjs' take() operator | number | N | 
+| numToTake | Number of emissions to take. Passed on to rxjs' take() operator | number | N |  |
 
 **Example**:
 ```typescript
@@ -19,4 +19,4 @@ of(false, true, 1, 0, 5, undefined, 'foo', null)
 // outputs true, 1, 5
 ```
 
-*Defined in [operators/takeTruthy.ts:18:26](https://github.com/Alorel/rxutils/blob/71e6a12/src/operators/takeTruthy.ts#L18).*
+*Defined in [operators/takeTruthy.ts:18:26](https://github.com/Alorel/rxutils/blob/f3e643f/src/operators/takeTruthy.ts#L18).*

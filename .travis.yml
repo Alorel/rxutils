@@ -10,6 +10,7 @@ script:
   - yarn run tslint
   - npm run build
   - npm test -- --forbid-only --forbid-pending
+  - ts-node mkdoc.ts
 after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
 after_success: cat ./coverage/lcov.info | coveralls
 cache:
@@ -26,6 +27,7 @@ jobs:
       before_script:
         - npm run build
         - alo copy-files
+        - ts-node mkdoc.ts
       script: semantic-release
       after_success: []
       after_script: []

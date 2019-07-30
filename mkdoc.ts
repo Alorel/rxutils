@@ -221,13 +221,14 @@ class ChildProcessor {
             paramStr += '?';
           }
           paramStr += `: ${typeStr}`;
-          descParams.push([
+          const paramsJoined = [
             p.name,
             p.comment!.text,
             typeStr,
             p.flags.isOptional ? 'Y' : 'N',
             hasDefault ? p.defaultValue!.trim() : ''
-          ].join(' | '));
+          ].join(' | ');
+          descParams.push(`| ${paramsJoined} |`);
 
           headParams.push(paramStr);
         }
