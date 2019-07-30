@@ -18,4 +18,4 @@ of('foo', 'bar', 'qux')
   .subscribe() // emits 1, then 2, then 3 and completes
 ```
 
-*Defined in [operators/countEmissions.ts:15:30](https://github.com/Alorel/rxutils/blob/d0833af/src/operators/countEmissions.ts#L15).*
+*Defined in [operators/countEmissions.ts:15:30](https://github.com/Alorel/rxutils/blob/4aee40e/src/operators/countEmissions.ts#L15).*

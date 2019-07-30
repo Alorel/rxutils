@@ -9,7 +9,7 @@ import {map, mapTo} from 'rxjs/operators';
  * @kind Operator
  * @param props Properties to pick
  * @throws When the properties input is not an array
- * @returns {} if the source is not an object or the properties array is empty,
+ * @returns An empty object if the source is not an object or the properties array is empty,
  * else an object composed of the provided properties, if they exist on the object.
  * @see https://lodash.com/docs/#pick
  * @example
@@ -37,7 +37,7 @@ export function pickProps<I extends object, P extends keyof I>(props: P[]): Oper
  * @kind Operator
  * @param props Properties to pick
  * @throws When the properties input is not an array
- * @returns {} if the source is not an object or the properties array is empty,
+ * @returns An empty object if the source is not an object or the properties array is empty,
  * else an object composed of the provided properties, if they exist on the object.
  * @see https://lodash.com/docs/#pick
  * @example

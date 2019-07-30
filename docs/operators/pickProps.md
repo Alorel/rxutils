@@ -9,7 +9,7 @@ property paths
 |---------------|-----------------|----------|--------------|-------------------|
 | props | Properties to pick | P[] | N |  |
 
-**Returns**: if the source is not an object or the properties array is empty,
+**Returns**: An empty object if the source is not an object or the properties array is empty,
 else an object composed of the provided properties, if they exist on the object.
 
 **throws**: When the properties input is not an array
@@ -36,7 +36,7 @@ of(obj)
 // outputs {foo: {bar: 1}, baz: 3}
 ```
 
-*Defined in [operators/pickProps.ts:33:25](https://github.com/Alorel/rxutils/blob/d0833af/src/operators/pickProps.ts#L33).*
+*Defined in [operators/pickProps.ts:33:25](https://github.com/Alorel/rxutils/blob/4aee40e/src/operators/pickProps.ts#L33).*
 ## pickProps\<I, O>(props: [PropertyKey](#)[]): [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction)\<I, O>
 
 Map to an object composed of the provided properties. Uses lodash's pick function and therefore accepts deep
@@ -46,7 +46,7 @@ property paths
 |---------------|-----------------|----------|--------------|-------------------|
 | props | Properties to pick | [PropertyKey](#)[] | N |  |
 
-**Returns**: if the source is not an object or the properties array is empty,
+**Returns**: An empty object if the source is not an object or the properties array is empty,
 else an object composed of the provided properties, if they exist on the object.
 
 **throws**: When the properties input is not an array
@@ -73,4 +73,4 @@ of(obj)
 // outputs {foo: {bar: 1}, baz: 3}
 ```
 
-*Defined in [operators/pickProps.ts:61:25](https://github.com/Alorel/rxutils/blob/d0833af/src/operators/pickProps.ts#L61).*
+*Defined in [operators/pickProps.ts:61:25](https://github.com/Alorel/rxutils/blob/4aee40e/src/operators/pickProps.ts#L61).*
