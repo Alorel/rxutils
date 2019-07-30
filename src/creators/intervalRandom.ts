@@ -14,10 +14,17 @@ interface State {
 
 /**
  * An interval that emits with random delays
+ * @kind Creator
  * @param lower Minimum delay
  * @param upper Maximum delay
  * @param scheduler Scheduler to use
  * @return An observable that emits the iteration index, starting at 0
+ * @example
+ * import {intervalRandom} from '@aloreljs/rxutils';
+ * import {asapScheduler} from 'rxjs';
+ *
+ * intervalRandom(1000, 2000).subscribe(); // emit every 1-2 seconds on the default scheduler
+ * intervalRandom(1000, 2000, asapScheduler).subscribe(); // emit every 1-2 seconds on the ASAP scheduler
  */
 export function intervalRandom(
   lower: number,

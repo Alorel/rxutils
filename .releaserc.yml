@@ -25,6 +25,7 @@ prepare:
       - README.md
       - package.json
       - yarn.lock
+      - docs
 
 publish:
   - path: *npm

@@ -2,10 +2,15 @@ import {Observable, OperatorFunction, Subscriber} from 'rxjs';
 
 /**
  * Counts how many times the source observable emits.
+ * @kind Operator
  * @param emitInitialZero If set to true, it will immediately emit 0 when subscribed to
  * @example
- * of('foo', 'bar', 'qux').pipe(countEmissions()).subscribe(...)
- * // emits 1, then 2, then 3 and completes
+ * import {of} from 'rxjs';
+ * import {countEmissions} from '@aloreljs/rxutils/operators';
+ *
+ * of('foo', 'bar', 'qux')
+ *   .pipe(countEmissions())
+ *   .subscribe() // emits 1, then 2, then 3 and completes
  */
 export function countEmissions(emitInitialZero = false): OperatorFunction<any, number> {
   return source => {
