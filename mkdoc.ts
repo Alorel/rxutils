@@ -234,7 +234,7 @@ class ChildProcessor {
         }
 
         header += headParams.join(', ');
-        comment += `\n${descParams.join('\n')}`;
+        comment += `\n\n${descParams.join('\n')}`;
       }
 
       if (sig.comment!.returns) {

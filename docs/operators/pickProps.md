@@ -5,6 +5,7 @@
 
 Map to an object composed of the provided properties. Uses lodash's pick function and therefore accepts deep
 property paths
+
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
 | props | Properties to pick | P[] | N |  |
@@ -36,11 +37,12 @@ of(obj)
 // outputs {foo: {bar: 1}, baz: 3}
 ```
 
-*Defined in [operators/pickProps.ts:33:25](https://github.com/Alorel/rxutils/blob/f3e643f/src/operators/pickProps.ts#L33).*
+*Defined in [operators/pickProps.ts:33:25](https://github.com/Alorel/rxutils/blob/acce92c/src/operators/pickProps.ts#L33).*
 ## pickProps\<I, O>(props: [PropertyKey](#)[]): [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction)\<I, O>
 
 Map to an object composed of the provided properties. Uses lodash's pick function and therefore accepts deep
 property paths
+
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
 | props | Properties to pick | [PropertyKey](#)[] | N |  |
@@ -72,4 +74,4 @@ of(obj)
 // outputs {foo: {bar: 1}, baz: 3}
 ```
 
-*Defined in [operators/pickProps.ts:61:25](https://github.com/Alorel/rxutils/blob/f3e643f/src/operators/pickProps.ts#L61).*
+*Defined in [operators/pickProps.ts:61:25](https://github.com/Alorel/rxutils/blob/acce92c/src/operators/pickProps.ts#L61).*
