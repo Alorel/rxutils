@@ -1,5 +1,4 @@
-# intervalRandom
-`Creator`
+# `Creator` intervalRandom
 
 ## intervalRandom(lower: number, upper: number, scheduler?: [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike)): [Observable](https://rxjs.dev/api/index/class/Observable)\<number>
 
@@ -22,4 +21,4 @@ intervalRandom(1000, 2000).subscribe(); // emit every 1-2 seconds on the default
 intervalRandom(1000, 2000, asapScheduler).subscribe(); // emit every 1-2 seconds on the ASAP scheduler
 ```
 
-*Defined in [creators/intervalRandom.ts:29:30](https://github.com/Alorel/rxutils/blob/acce92c/src/creators/intervalRandom.ts#L29).*
+*Defined in [creators/intervalRandom.ts:29:30](https://github.com/Alorel/rxutils/blob/d0833af/src/creators/intervalRandom.ts#L29).*

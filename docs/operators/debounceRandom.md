@@ -1,5 +1,4 @@
-# debounceRandom
-`Operator`
+# `Operator` debounceRandom
 
 ## debounceRandom\<T>(lower: number, upper: number): [MonoTypeOperatorFunction](https://rxjs.dev/api/index/interface/MonoTypeOperatorFunction)\<T>
 
@@ -20,4 +19,4 @@ getSomeObservable()
 // Works like debounceTime, but debounces by anywhere between 100 and 200ms every time
 ```
 
-*Defined in [operators/debounceRandom.ts:18:30](https://github.com/Alorel/rxutils/blob/acce92c/src/operators/debounceRandom.ts#L18).*
+*Defined in [operators/debounceRandom.ts:18:30](https://github.com/Alorel/rxutils/blob/d0833af/src/operators/debounceRandom.ts#L18).*

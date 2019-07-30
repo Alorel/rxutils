@@ -195,8 +195,7 @@ class ChildProcessor {
 
   private processFunction(): void {
     this.lines.push(
-      `# ${this.child.name}`,
-      `\`${this.category}\``,
+      `# \`${this.category}\` ${this.child.name}`,
       ''
     );
 
@@ -276,8 +275,7 @@ class ChildProcessor {
   private processTypeAlias(): void {
     let signature = this.child.name + typeParamsToString(this.child.typeParameters);
     this.lines.push(
-      `# ${signature}`,
-      `\`${this.category}\``,
+      `# \`${this.category}\` ${signature}`,
       ''
     );
     const comm = processComment(this.child.comment);

@@ -1,5 +1,4 @@
-# takeFalsy
-`Operator`
+# `Operator` takeFalsy
 
 ## takeFalsy\<I, O>(numToTake: number): [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction)\<I, O>
 
@@ -20,4 +19,4 @@ of(false, true, 1, 0, 5, undefined, 'foo', null)
 // outputs false, 0, undefined
 ```
 
-*Defined in [operators/takeFalsy.ts:18:25](https://github.com/Alorel/rxutils/blob/acce92c/src/operators/takeFalsy.ts#L18).*
+*Defined in [operators/takeFalsy.ts:18:25](https://github.com/Alorel/rxutils/blob/d0833af/src/operators/takeFalsy.ts#L18).*
