@@ -31,7 +31,8 @@
     "build:umd": "webpack",
     "prebuild": "rimraf dist",
     "build": "concurrently \"npm:build:*\"",
-    "typedoc": "typedoc src/**/*"
+    "typedoc:json": "typedoc src/**/*",
+    "typedoc:md": "ts-node mkdoc.ts"
   },
   "repository": "git@github.com:Alorel/rxutils.git",
   "devDependencies": {

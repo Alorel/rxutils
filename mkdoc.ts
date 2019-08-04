@@ -2,11 +2,27 @@ import * as fs from 'fs-extra';
 import {LazyGetter} from 'lazy-get-decorator';
 import {basename, dirname, join} from 'path';
 import {sync as rimraf} from 'rimraf';
-import {Application, DeclarationReflection, ProjectReflection, ReflectionKind, TypeParameterReflection} from 'typedoc';
-import {ArrayType, Comment, IntrinsicType, ReferenceType, Type, TypeParameterType} from 'typedoc/dist/lib/models';
+import {
+  Application,
+  DeclarationReflection,
+  ProjectReflection,
+  ReflectionKind,
+  SignatureReflection,
+  TypeParameterReflection
+} from 'typedoc';
+import {
+  ArrayType,
+  Comment,
+  IntrinsicType,
+  ReferenceType,
+  ReflectionType,
+  Type,
+  TypeParameterType
+} from 'typedoc/dist/lib/models';
 import {SourceReference} from 'typedoc/dist/lib/models/sources/file';
 import find = require('lodash/find');
 import get = require('lodash/get');
+import upperFirst = require('lodash/upperFirst');
 
 //tslint:disable:no-var-requires max-file-line-count
 
@@ -80,12 +96,34 @@ function stringifyType(type?: Type | null, referenceLineNumbers = true): string 
         out = linkReference(rt, referenceLineNumbers);
 
         return out;
+      case 'reflection':
+        return stringifySignature((<ReflectionType>type).declaration.signatures![0], false);
       default:
         throw new Error(`Don't know how to stringify type ${type.type}`);
     }
   }
 
   return '';
+}
+
+function stringifySignature(sig: SignatureReflection, includeName = true): string {
+  let out = includeName ? sig.name : '';
+  out += `${typeParamsToString(sig.typeParameters)}(`;
+
+  if (sig.parameters && sig.parameters.length) {
+    const params: string[] = [];
+    for (const p of sig.parameters) {
+      let paramStr = p.name;
+      if (p.flags.isOptional || (p.defaultValue && p.defaultValue.trim())) {
+        paramStr += '?';
+      }
+      paramStr += `: ${stringifyType(p.type, false)}`;
+      params.push(paramStr);
+    }
+    out += `${params.join(', ')}`;
+  }
+
+  return `${out})${includeName ? ':' : ' =>'} ${sig.type ? stringifyType(sig.type, false) : 'any'}`;
 }
 
 const typeParamsToString = (() => {
@@ -202,24 +240,18 @@ class ChildProcessor {
     for (let i = 0; i < this.child.signatures!.length; i++) {
       const sig = this.child.signatures![i];
 
-      let header = `## ${sig.name}${typeParamsToString(sig.typeParameters)}(`;
+      let header = `## ${stringifySignature(sig)}`;
       let comment = processComment(sig.comment);
 
       if (sig.parameters && sig.parameters.length) {
-        const headParams: string[] = [];
         const descParams = [
           '| **Parameter** | **Description** | **Type** | **Optional** | **Default value** |',
           '|---------------|-----------------|----------|--------------|-------------------|'
         ];
 
         for (const p of sig.parameters) {
-          let paramStr = p.name;
           const hasDefault = p.defaultValue && p.defaultValue.trim();
           const typeStr = stringifyType(p.type, false);
-          if (hasDefault || p.flags.isOptional) {
-            paramStr += '?';
-          }
-          paramStr += `: ${typeStr}`;
           const paramsJoined = [
             p.name,
             p.comment!.text,
@@ -228,11 +260,8 @@ class ChildProcessor {
             hasDefault ? p.defaultValue!.trim() : ''
           ].join(' | ');
           descParams.push(`| ${paramsJoined} |`);
-
-          headParams.push(paramStr);
         }
 
-        header += headParams.join(', ');
         comment += `\n\n${descParams.join('\n')}`;
       }
 
@@ -245,7 +274,7 @@ class ChildProcessor {
           switch (tag.tagName) {
             case 'see':
             case 'throws':
-              comment += `\n\n**${tag.tagName}**: ${tag.text.trim()}`;
+              comment += `\n\n**${upperFirst(tag.tagName)}**: ${tag.text.trim()}`;
               break;
             case 'since':
               comment += `\n\n*Added in version ${tag.text.trim()}*`;
@@ -265,8 +294,6 @@ class ChildProcessor {
       if (dl) {
         comment += `\n\n${dl}`;
       }
-
-      header += `): ${sig.type ? stringifyType(sig.type, false) : 'any'}`;
 
       this.lines.push(header, '', comment);
     }

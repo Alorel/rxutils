@@ -5,7 +5,7 @@
 {@link distinctUntilChanged} with lodash's isEqual as the comparator function.
 Uses lodash in commonjs and lodash-es in es2015.
 
-**see**: https://lodash.com/docs/#isEqual
+**See**: https://lodash.com/docs/#isEqual
 
 **Example**:
 ```typescript
@@ -18,4 +18,4 @@ of({a: 1}, {a: 1}, {a: 2}, {a: 1})
 // Emits {a: 1}, {a: 2}, {a: 1}
 ```
 
-*Defined in [operators/distinctUntilDeepChanged.ts:19:40](https://github.com/Alorel/rxutils/blob/4aee40e/src/operators/distinctUntilDeepChanged.ts#L19).*
+*Defined in [operators/distinctUntilDeepChanged.ts:19:40](https://github.com/Alorel/rxutils/blob/5827c52/src/operators/distinctUntilDeepChanged.ts#L19).*
