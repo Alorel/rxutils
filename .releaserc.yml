@@ -13,8 +13,6 @@ prepare:
   - path: &exec '@semantic-release/exec'
     cmd: node patch-doc-link.js
   - path: *exec
-    cmd: yarn run doctoc
-  - path: *exec
     cmd: alo copy-files
   - path: *exec
     cmd: alo clean-dist
