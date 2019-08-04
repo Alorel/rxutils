@@ -43,7 +43,7 @@ describe('logError', () => {
   });
 
   describe('Custom logger', () => {
-    let logger: { log(...args: any[]): void; readonly prefix: string; };
+    let logger: { readonly prefix: string; log(...args: any[]): void };
     let callArgs: any[];
 
     before('Init custom logger', () => {
@@ -103,7 +103,7 @@ describe('logError', () => {
     let oldConsoleError: any;
     let id = uuid();
 
-    before('Spy', () => {
+    before('Spy', () => { //tslint:disable-line:no-identical-functions
       oldConsoleError = console.error;
       console.error = noop;
       spy = sinon.spy(console, 'error');
@@ -144,6 +144,7 @@ describe('setDefaultLogger', () => {
 
   before('Set', () => {
     oldLogger = setDefaultLogger(logSpy = sinon.spy(function () {
+      // noop
     }));
   });
 

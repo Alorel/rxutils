@@ -2,6 +2,7 @@ import {MonoTypeOperatorFunction} from 'rxjs';
 import {tapError} from './tapError';
 
 const logged: unique symbol = Symbol('logged');
+//tslint:disable-next-line:no-unbound-method
 let defaultLoggerFactory: () => (...args: any[]) => void = () => console.error;
 
 /**

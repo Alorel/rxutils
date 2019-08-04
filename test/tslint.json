@@ -5,6 +5,8 @@
     "no-magic-numbers": false,
     "import-blacklist": false,
     "max-classes-per-file": false,
+    "no-duplicate-string": false,
+    "no-unbound-method": false,
     "no-invalid-this": false
   }
 }
