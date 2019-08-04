@@ -19,4 +19,4 @@ getSomeObservable()
 // Works like debounceTime, but debounces by anywhere between 100 and 200ms every time
 ```
 
-*Defined in [operators/debounceRandom.ts:18:30](https://github.com/Alorel/rxutils/blob/5d6fec1/src/operators/debounceRandom.ts#L18).*
+*Defined in [operators/debounceRandom.ts:18:30](https://github.com/Alorel/rxutils/blob/490028b/src/operators/debounceRandom.ts#L18).*
