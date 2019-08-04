@@ -22,9 +22,9 @@ const source2 = of('foo');
 const combined = combineLatest(source1, source2).pipe(
   logError('[combined error]')
 );
-combined.subscribed();
+combined.subscribe();
 // Outputs [source 1 error] + error object for source 1's error
 // Does not output [combined error] [...]
 ```
 
-*Defined in [operators/logError.ts:102:24](https://github.com/Alorel/rxutils/blob/7128971/src/operators/logError.ts#L102).*
+*Defined in [operators/logError.ts:103:24](https://github.com/Alorel/rxutils/blob/5d6fec1/src/operators/logError.ts#L103).*

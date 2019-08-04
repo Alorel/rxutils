@@ -1,6 +1,7 @@
 import * as fs from 'fs-extra';
 import {LazyGetter} from 'lazy-get-decorator';
 import {basename, dirname, join} from 'path';
+import * as pluralise from 'pluralize';
 import {sync as rimraf} from 'rimraf';
 import {
   Application,
@@ -22,6 +23,7 @@ import {
 import {SourceReference} from 'typedoc/dist/lib/models/sources/file';
 import find = require('lodash/find');
 import get = require('lodash/get');
+import sortBy = require('lodash/sortBy');
 import upperFirst = require('lodash/upperFirst');
 
 //tslint:disable:no-var-requires max-file-line-count
@@ -175,10 +177,15 @@ function sourceRefLink({fileName, line, character, url}: SourceReference, refere
 }
 
 class ChildProcessor {
+  public static byKind: { [k: string]: ChildProcessor[] } = {};
+
   private readonly lines: string[] = [];
 
-  public constructor(private readonly child: DeclarationReflection) {
-
+  public constructor(public readonly child: DeclarationReflection) {
+    if (!ChildProcessor.byKind[this.category]) {
+      ChildProcessor.byKind[this.category] = [];
+    }
+    ChildProcessor.byKind[this.category].push(this);
   }
 
   @LazyGetter()
@@ -348,3 +355,30 @@ outer:
         });
     }
   }
+
+(() => {
+  let contents: string[] = [
+    `# rxutils ${REVISION} documentation`
+  ];
+
+  const kinds = Object.keys(ChildProcessor.byKind);
+  kinds.sort();
+
+  for (const kind of kinds) {
+    contents.push('', `## ${pluralise(kind)}`, '');
+    const kids = sortBy(ChildProcessor.byKind[kind], ['child', 'name']);
+
+    for (const cp of kids) {
+      let link: string;
+      if (CUSTOM_WRITE_PATHS[cp.child.name]) {
+        link = CUSTOM_WRITE_PATHS[cp.child.name];
+      } else {
+        link = cp.child.sources![0].fileName.replace(/\.ts$/, '.md');
+      }
+
+      contents.push(`- [${cp.child.name}](${link})`);
+    }
+  }
+
+  fs.writeFileSync(join(WRITE_PATH, 'README.md'), contents.join('\n') + '\n');
+})();
