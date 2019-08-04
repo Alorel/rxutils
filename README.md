@@ -14,7 +14,7 @@ A collection of utility functions for rxjs:
 import {of} from 'rxjs';
 import {innerMap, logError, distinctUntilDeepChanged} from '@aloreljs/rxutils/operators';
 
-of([1,2,3])
+of([1, 2, 3])
   .pipe(
     innerMap(n => n * 2),
     logError('[Inner map error]'),
@@ -23,7 +23,8 @@ of([1,2,3])
   .subscribe();
 ```
 
-Full API docs are available [here](https://github.com/Alorel/rxutils/tree/0.1.1/docs).
+Full API docs and examples for version 0.0.1 are available [here](https://github.com/Alorel/rxutils/tree/0.0.1/docs).
+Docs and examples for the latest version are available [here](http://bit.ly/rxutils-master-docs).
 
 # Installation
 ```
