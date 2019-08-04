@@ -5,6 +5,7 @@ Utility functions for rxjs
 [![Greenkeeper badge](https://badges.greenkeeper.io/Alorel/rxutils.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.com/Alorel/rxutils.svg?branch=master)](https://travis-ci.com/Alorel/rxutils)
 [![Coverage Status](https://coveralls.io/repos/github/Alorel/rxutils/badge.svg?branch=master)](https://coveralls.io/github/Alorel/rxutils?branch=master)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Alorel/rxutils.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Alorel/rxutils/context:javascript)
 
 -----
 
