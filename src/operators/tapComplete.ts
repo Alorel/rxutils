@@ -4,6 +4,8 @@ import {tap} from 'rxjs/operators';
 /**
  * Shorthand for <code>tap(noop, noop, tapFunction)</code>
  * @param tapFn Tap function to execute when the source completes
+ * @kind Operator
+ * @see https://rxjs.dev/api/operators/tap
  * @example
  * import {of} from 'rxjs';
  * import {tap} from 'rxjs/operators';
