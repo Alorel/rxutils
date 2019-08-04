@@ -39,6 +39,10 @@ const referenceLinks = {
   PropertyKey: '#',
   SchedulerLike: 'https://rxjs.dev/api/index/interface/SchedulerLike'
 };
+const CUSTOM_WRITE_PATHS = {
+  setDefaultLogger: 'misc/setDefaultLogger.md',
+  wasLogged: 'misc/wasLogged.md'
+};
 
 rimraf(WRITE_PATH);
 
@@ -113,7 +117,7 @@ function stringifySignature(sig: SignatureReflection, includeName = true): strin
   if (sig.parameters && sig.parameters.length) {
     const params: string[] = [];
     for (const p of sig.parameters) {
-      let paramStr = p.name;
+      let paramStr = p.flags.isRest ? `...${p.name}` : p.name;
       if (p.flags.isOptional || (p.defaultValue && p.defaultValue.trim())) {
         paramStr += '?';
       }
@@ -216,7 +220,12 @@ class ChildProcessor {
   }
 
   public write(): Promise<void> {
-    const filepath = join(WRITE_PATH, this.child.sources![0].fileName).replace(/\.ts$/, '.md');
+    let filepath: string;
+    if (CUSTOM_WRITE_PATHS[this.child.name]) {
+      filepath = join(WRITE_PATH, CUSTOM_WRITE_PATHS[this.child.name]);
+    } else {
+      filepath = join(WRITE_PATH, this.child.sources![0].fileName).replace(/\.ts$/, '.md');
+    }
     const dirpath = dirname(filepath);
     fs.mkdirpSync(dirpath);
 
@@ -254,9 +263,9 @@ class ChildProcessor {
           const typeStr = stringifyType(p.type, false);
           const paramsJoined = [
             p.name,
-            p.comment!.text,
+            p.comment!.text.replace(/\n/g, ' '),
             typeStr,
-            p.flags.isOptional ? 'Y' : 'N',
+            p.flags.isOptional ? ':heavy_check_mark: Yes' : 'No',
             hasDefault ? p.defaultValue!.trim() : ''
           ].join(' | ');
           descParams.push(`| ${paramsJoined} |`);
