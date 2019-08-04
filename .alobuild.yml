@@ -7,15 +7,26 @@ clean-pkg-json:
 
 copy-files:
   from:
-  - package.json
-  - LICENSE
-  - CHANGELOG.md
-  - README.md
+    - package.json
+    - LICENSE
+    - CHANGELOG.md
+    - README.md
   to: *distDirs
 
 build:
-  entry: src/index.ts
+  entry: src-esm/index.ts
   license-banner: true
   out: *distDirs
   umd-name: @aloreljs/rxutils
-  externals: tslib
+  skip-package-fields: true
+  skip-clean: true
+  targets:
+    - esm5
+    - fesm5
+    - esm2015
+    - fesm2015
+  externals:
+    - tslib
+    - rxjs
+    - rxjs/operators
+    - lodash-es

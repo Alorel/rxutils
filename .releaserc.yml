@@ -11,7 +11,7 @@ prepare:
   - '@alorel-personal/semantic-release'
   - *npm
   - path: &exec '@semantic-release/exec'
-    cmd: yarn run doctoc
+    cmd: node patch-doc-link.js
   - path: *exec
     cmd: alo copy-files
   - path: *exec
@@ -25,7 +25,7 @@ prepare:
       - README.md
       - package.json
       - yarn.lock
-      - .tsbuildinfo
+      - docs
 
 publish:
   - path: *npm
