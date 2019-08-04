@@ -6,9 +6,9 @@ An interval that emits with random delays
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| lower | Minimum delay | number | N |  |
-| upper | Maximum delay | number | N |  |
-| scheduler | Scheduler to use | [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike) | N | DEFAULT_SCHEDULER |
+| lower | Minimum delay | number | No |  |
+| upper | Maximum delay | number | No |  |
+| scheduler | Scheduler to use | [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike) | No | DEFAULT_SCHEDULER |
 
 **Returns**: An observable that emits the iteration index, starting at 0
 
@@ -21,4 +21,4 @@ intervalRandom(1000, 2000).subscribe(); // emit every 1-2 seconds on the default
 intervalRandom(1000, 2000, asapScheduler).subscribe(); // emit every 1-2 seconds on the ASAP scheduler
 ```
 
-*Defined in [creators/intervalRandom.ts:29:30](https://github.com/Alorel/rxutils/blob/5827c52/src/creators/intervalRandom.ts#L29).*
+*Defined in [creators/intervalRandom.ts:29:30](https://github.com/Alorel/rxutils/blob/7128971/src/creators/intervalRandom.ts#L29).*

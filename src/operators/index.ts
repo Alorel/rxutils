@@ -7,3 +7,4 @@ export {pickProps} from './pickProps';
 export {debounceRandom} from './debounceRandom';
 export {tapError} from './tapError';
 export {tapComplete} from './tapComplete';
+export {logError} from './logError';

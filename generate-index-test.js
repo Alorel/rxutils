@@ -2,6 +2,11 @@ const fs = require('fs-extra');
 const {join, basename} = require('path');
 const {EOL} = require('os');
 
+const additionalExports = [
+  ['wasLogged', 'operators/logError'],
+  ['setDefaultLogger', 'operators/logError'],
+];
+
 function generateIndex() {
   const dir = join(__dirname, 'src', 'creators');
   const creatorNames = fs.readdirSync(dir)
@@ -25,6 +30,20 @@ function generateIndex() {
     '  });',
     ''
   ];
+
+  for (const [name, path] of additionalExports) {
+    imports.push(`import {${name}} from '../src/${path}';`);
+    testCases.push(
+      `  it('Should export ${name}', () => {`,
+      `    expect(index).to.haveOwnProperty('${name}');`,
+      '  });',
+      '',
+      `  it('Exported ${name} should === that from ${path}', () => {`,
+      `    expect(index.${name}).to.equal(${name});`,
+      '  });',
+      ''
+    )
+  }
 
   for (const cr of creatorNames) {
     imports.push(`import {${cr}} from '../src/creators/${cr}';`);

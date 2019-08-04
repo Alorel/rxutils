@@ -6,7 +6,7 @@ Shorthand for <code>tap(noop, tapFunction)</code>
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| tapFn | The tap function accepting an error argument | (e?: E) => void | N |  |
+| tapFn | The tap function accepting an error argument | (e?: E) => void | No |  |
 
 **See**: https://rxjs.dev/api/operators/tap
 
@@ -25,4 +25,4 @@ throwError(new Error('foo'))
 // Logs 'error', then the error object
 ```
 
-*Defined in [operators/tapError.ts:22:24](https://github.com/Alorel/rxutils/blob/5827c52/src/operators/tapError.ts#L22).*
+*Defined in [operators/tapError.ts:22:24](https://github.com/Alorel/rxutils/blob/7128971/src/operators/tapError.ts#L22).*
