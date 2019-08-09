@@ -42,7 +42,7 @@ function generateIndex() {
       `    expect(index.${name}).to.equal(${name});`,
       '  });',
       ''
-    )
+    );
   }
 
   for (const cr of creatorNames) {
