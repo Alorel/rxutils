@@ -5,6 +5,7 @@ const {EOL} = require('os');
 const additionalExports = [
   ['wasLogged', 'operators/logError'],
   ['setDefaultLogger', 'operators/logError'],
+  ['NOOP_OBSERVER', 'util/NOOP_OBSERVER']
 ];
 
 function generateIndex() {

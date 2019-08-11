@@ -192,17 +192,17 @@ class ChildProcessor {
   public get category(): string {
     let tried = tryGetCommentKind(this.child.comment);
     if (tried) {
-      return tried;
+      return tried.trim();
     } else if (this.child.signatures && this.child.signatures.length) {
       for (const s of this.child.signatures) {
         tried = tryGetCommentKind(s.comment);
         if (tried) {
-          return tried;
+          return tried.trim();
         }
       }
     }
 
-    return this.child.kindString || '';
+    return (this.child.kindString || '').trim();
   }
 
   public process(): boolean {
@@ -214,6 +214,9 @@ class ChildProcessor {
         break;
       case ReflectionKind.Function:
         this.processFunction();
+        break;
+      case ReflectionKind.Variable:
+        this.processVariable();
         break;
       default:
         return false;
@@ -330,6 +333,18 @@ class ChildProcessor {
       this.lines.push(dl);
     }
   }
+
+  private processVariable(): void {
+    this.lines.push(`# \`${this.category}\` ${this.child.name}`);
+    const comm = processComment(this.child.comment);
+    if (comm) {
+      this.lines.push('', comm);
+    }
+    const dl = this.getDefLink(get(this.child.sources, '0'));
+    if (dl) {
+      this.lines.push('', dl);
+    }
+  }
 }
 
 outer:
@@ -365,7 +380,7 @@ outer:
   kinds.sort();
 
   for (const kind of kinds) {
-    contents.push('', `## ${pluralise(kind)}`, '');
+    contents.push('', `## ${pluralise(kind.trim())}`, '');
     const kids = sortBy(ChildProcessor.byKind[kind], ['child', 'name']);
 
     for (const cp of kids) {
