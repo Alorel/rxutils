@@ -4,15 +4,32 @@ const {EOL} = require('os');
 
 const additionalExports = [
   ['wasLogged', 'operators/logError'],
-  ['setDefaultLogger', 'operators/logError'],
-  ['NOOP_OBSERVER', 'util/NOOP_OBSERVER']
+  ['setDefaultLogger', 'operators/logError']
 ];
 
 function generateIndex() {
-  const dir = join(__dirname, 'src', 'creators');
-  const creatorNames = fs.readdirSync(dir)
-    .filter(n => n !== 'index.ts')
-    .map(n => basename(n, '.ts'));
+  function processDir(dirName) {
+    const dir = join(__dirname, 'src', dirName);
+    const names = fs.readdirSync(dir)
+      .filter(n => n !== 'index.ts')
+      .map(n => basename(n, '.ts'));
+
+    for (const cr of names) {
+      imports.push(`import {${cr}} from '../src/${dirName}/${cr}';`);
+      testCases.push(
+        `  describe('${cr}', () => {`,
+        `    it('Should be exported', () => {`,
+        `      expect(index).to.haveOwnProperty('${cr}');`,
+        `    });`,
+        '',
+        `    it('Should === ${cr} exported from its own file', () => {`,
+        `      expect(index.${cr}).to.equal(${cr}, '${cr} !==');`,
+        `    });`,
+        '  });',
+        ''
+      );
+    }
+  }
 
   const imports = [
     "import {expect} from 'chai';",
@@ -46,21 +63,8 @@ function generateIndex() {
     );
   }
 
-  for (const cr of creatorNames) {
-    imports.push(`import {${cr}} from '../src/creators/${cr}';`);
-    testCases.push(
-      `  describe('${cr}', () => {`,
-      `    it('Should be exported', () => {`,
-      `      expect(index).to.haveOwnProperty('${cr}');`,
-      `    });`,
-      '',
-      `    it('Should === ${cr} exported from its own file', () => {`,
-      `      expect(index.${cr}).to.equal(${cr}, '${cr} !==');`,
-      `    });`,
-      '  });',
-      ''
-    );
-  }
+  processDir('creators');
+  processDir('util');
 
   testCases.push('});');
 
