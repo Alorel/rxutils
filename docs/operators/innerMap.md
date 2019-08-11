@@ -1,12 +1,12 @@
 # `Operator` innerMap
 
-## innerMap\<I, O>(mapFn: [ArrayMapFn](https://github.com/Alorel/rxutils/blob/490028b/src/types/ArrayMapFn.ts#L2)\<I,O>, thisArg?: any): [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction)\<I[], O[]>
+## innerMap\<I, O>(mapFn: [ArrayMapFn](https://github.com/Alorel/rxutils/blob/ca6c4c0/src/types/ArrayMapFn.ts#L2)\<I,O>, thisArg?: any): [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction)\<I[], O[]>
 
 An rxjs map operator that performs Array.prototype.map on the input array.
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| mapFn | Callback for Array.prototype.map | [ArrayMapFn](https://github.com/Alorel/rxutils/blob/490028b/src/types/ArrayMapFn.ts#L2)\<I,O> | No |  |
+| mapFn | Callback for Array.prototype.map | [ArrayMapFn](https://github.com/Alorel/rxutils/blob/ca6c4c0/src/types/ArrayMapFn.ts#L2)\<I,O> | No |  |
 | thisArg | What to bind the map function to; passed to Array.prototype.map | any | :heavy_check_mark: Yes |  |
 
 **Example**:
@@ -20,4 +20,4 @@ of([1,2,3])
 // outputs [2, 4, 6]
 ```
 
-*Defined in [operators/innerMap.ts:19:24](https://github.com/Alorel/rxutils/blob/490028b/src/operators/innerMap.ts#L19).*
+*Defined in [operators/innerMap.ts:19:24](https://github.com/Alorel/rxutils/blob/ca6c4c0/src/operators/innerMap.ts#L19).*

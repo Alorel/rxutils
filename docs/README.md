@@ -1,4 +1,4 @@
-# rxutils 1.0.0 documentation
+# rxutils 1.1.0 documentation
 
 ## Creators
 
@@ -25,3 +25,8 @@
 ## Type aliases
 
 - [ArrayMapFn](types/ArrayMapFn.md)
+
+## Utilities
+
+- [nextObserver](util/nextObserver.md)
+- [NOOP_OBSERVER](util/NOOP_OBSERVER.md)
