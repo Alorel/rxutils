@@ -36,6 +36,7 @@ const DEFAULT_LANG = 'typescript';
 const referenceLinks = {
   MonoTypeOperatorFunction: 'https://rxjs.dev/api/index/interface/MonoTypeOperatorFunction',
   Observable: 'https://rxjs.dev/api/index/class/Observable',
+  Observer: 'https://rxjs.dev/api/index/interface/Observer',
   OperatorFunction: 'https://rxjs.dev/api/index/interface/OperatorFunction',
   Pick: 'https://www.typescriptlang.org/docs/handbook/utility-types.html#picktk',
   PropertyKey: '#',
@@ -300,12 +301,9 @@ class ChildProcessor {
               break;
           }
         }
-        const exampleTag = sig.comment!.getTag('example');
-        if (exampleTag) {
-          const langTag = sig.comment!.getTag('exampleLang');
-          const lang = langTag ? langTag.text.trim() : DEFAULT_LANG;
-
-          comment += `\n\n**Example**:\n\`\`\`${lang}\n${exampleTag.text.trim()}\n\`\`\``;
+        const example = processExample(sig.comment!);
+        if (example) {
+          comment += example;
         }
       }
 
@@ -340,11 +338,27 @@ class ChildProcessor {
     if (comm) {
       this.lines.push('', comm);
     }
+    const example = processExample(this.child.comment!);
+    if (example) {
+      this.lines.push('', example);
+    }
     const dl = this.getDefLink(get(this.child.sources, '0'));
     if (dl) {
       this.lines.push('', dl);
     }
   }
+}
+
+function processExample(comment: Comment): string | null {
+  const exampleTag = comment.getTag('example');
+  if (exampleTag) {
+    const langTag = comment.getTag('exampleLang');
+    const lang = langTag ? langTag.text.trim() : DEFAULT_LANG;
+
+    return `\n\n**Example**:\n\`\`\`${lang}\n${exampleTag.text.trim()}\n\`\`\``;
+  }
+
+  return null;
 }
 
 outer:
