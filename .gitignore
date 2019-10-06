@@ -12,3 +12,4 @@ package-lock.json
 /test/operators/index.ts
 /test/index.ts
 /doc.json
+/report*.json
