@@ -14,6 +14,7 @@
 - [countEmissions](operators/countEmissions.md)
 - [debounceRandom](operators/debounceRandom.md)
 - [distinctUntilDeepChanged](operators/distinctUntilDeepChanged.md)
+- [innerFilter](operators/innerFilter.md)
 - [innerMap](operators/innerMap.md)
 - [logError](operators/logError.md)
 - [pickProps](operators/pickProps.md)

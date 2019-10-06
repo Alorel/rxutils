@@ -1,5 +1,5 @@
 import {OperatorFunction} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {mkArrayFilterOperator} from '../internal/mkArrayMapOperator';
 import {ArrayMapFn} from '../types/ArrayMapFn';
 
 /**
@@ -17,5 +17,5 @@ import {ArrayMapFn} from '../types/ArrayMapFn';
  * // outputs [2, 4, 6]
  */
 export function innerMap<I, O>(mapFn: ArrayMapFn<I, O>, thisArg?: any): OperatorFunction<I[], O[]> {
-  return map((inArray: I[]): O[] => inArray.map(mapFn, thisArg));
+  return mkArrayFilterOperator(mapFn, 'map', thisArg);
 }
