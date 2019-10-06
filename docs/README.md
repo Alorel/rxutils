@@ -1,4 +1,4 @@
-# rxutils 1.1.0 documentation
+# rxutils 1.2.0 documentation
 
 ## Creators
 

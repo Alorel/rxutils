@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/Alorel/rxutils/compare/1.1.0...1.2.0) (2019-10-06)
+
+
+### Features
+
+* **Operators:** innerFilter operator ([bc77141](https://github.com/Alorel/rxutils/commit/bc77141))
+
+
+### Maintenance
+
+* Add typedoc intermediary report file to gitignore ([e35c85f](https://github.com/Alorel/rxutils/commit/e35c85f))
+* Update dev dependencies ([b4fa3c7](https://github.com/Alorel/rxutils/commit/b4fa3c7))
+
 # [1.1.0](https://github.com/Alorel/rxutils/compare/1.0.0...1.1.0) (2019-08-11)
 
 
