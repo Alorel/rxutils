@@ -14,4 +14,21 @@ describe('operators/innerMap', () => {
       )
       .toPromise();
   });
+
+  it('Should apply thisArg', async () => {
+    class Mapper {
+      public readonly num = 2;
+
+      public doMap(v: number): number {
+        return v * this.num;
+      }
+    }
+
+    const inst = new Mapper();
+    const result = of([1, 2, 3])
+      .pipe(innerMap(inst.doMap, inst))
+      .toPromise();
+
+    expect(await result).to.deep.eq([2, 4, 6]);
+  });
 });
