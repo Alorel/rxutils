@@ -2,10 +2,17 @@ language: node_js
 node_js:
   - stable
   - lts/dubnium
+
+env:
+  global:
+    - COVERALLS_PARALLEL=true
+
 before_install:
   - npm i -g yarn greenkeeper-lockfile
   - greenkeeper-lockfile-update
+
 install: yarn install --check-files
+
 script:
   - yarn run tslint
   - npm run build
@@ -13,12 +20,14 @@ script:
   - yarn run typedoc:md
 after_script: if [[ $GH_TOKEN ]]; then greenkeeper-lockfile-upload; fi;
 after_success: cat ./coverage/lcov.info | coveralls
+
 cache:
   yarn: true
 stages:
   - Test
   - name: Release
     if: branch = master AND type = push AND (NOT tag IS present)
+
 jobs:
   include:
     - stage: Release
@@ -32,3 +41,5 @@ jobs:
       after_success: []
       after_script: []
 
+notifications:
+  webhooks: https://coveralls.io/webhook
