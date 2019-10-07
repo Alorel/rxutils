@@ -6,6 +6,7 @@ import {map, mapTo} from 'rxjs/operators';
 /**
  * Map to an object composed of the provided properties. Uses lodash's pick function and therefore accepts deep
  * property paths
+ * @since 1.0.0
  * @kind Operator
  * @param props Properties to pick
  * @throws When the properties input is not an array

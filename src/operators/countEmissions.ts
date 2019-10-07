@@ -2,6 +2,7 @@ import {Observable, OperatorFunction, Subscriber} from 'rxjs';
 
 /**
  * Counts how many times the source observable emits.
+ * @since 1.0.0
  * @kind Operator
  * @param emitInitialZero If set to true, it will immediately emit 0 when subscribed to
  * @example

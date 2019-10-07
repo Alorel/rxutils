@@ -3,6 +3,7 @@ import {noop, Observer} from 'rxjs';
 /**
  * A no-op observer to be passed to .subscribe() calls when you do your logic and/or error handling inside the
  * observable pipeline.
+ * @since 1.1.0
  * @kind Utility
  * @example
  * import {of} from 'rxjs';

@@ -4,6 +4,7 @@ import {isFalsy} from '../internal/isFalsy';
 
 /**
  * Shorthand for <code>source.pipe(filter(v => !v), take(num))</code>
+ * @since 1.0.0
  * @kind Operator
  * @param numToTake Number of emissions to take. Passed on to rxjs' take() operator
  * @example

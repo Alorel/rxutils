@@ -4,6 +4,7 @@ import {ArrayMapFn} from '../types/ArrayMapFn';
 
 /**
  * An rxjs map operator that performs Array.prototype.map on the input array.
+ * @since 1.0.0
  * @kind Operator
  * @param mapFn Callback for Array.prototype.map
  * @param thisArg What to bind the map function to; passed to Array.prototype.map

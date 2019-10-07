@@ -15,6 +15,7 @@ interface State {
 /**
  * An interval that emits with random delays
  * @kind Creator
+ * @since 1.0.0
  * @param lower Minimum delay
  * @param upper Maximum delay
  * @param scheduler Scheduler to use

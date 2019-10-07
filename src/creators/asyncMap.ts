@@ -6,6 +6,7 @@ import {combineLatest, forkJoin, Observable, ObservableInput, of, throwError} fr
 /**
  * Map the input array using the given asynchronous mapping function
  * @kind Creator
+ * @since 1.3.0
  * @param input The input array
  * @param mapper The mapping function
  * @param emitIntermediate When false (default), uses forkJoin to emit the output and therefore emits only once;

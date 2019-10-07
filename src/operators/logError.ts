@@ -7,6 +7,7 @@ let defaultLoggerFactory: () => (...args: any[]) => void = () => console.error;
 
 /**
  * Check if the given error was logged by the {@link logError} operator
+ * @since 1.0.0
  * @param v Error to check
  * @returns True if the input is truthy and has been logged, false otherwise
  * @example

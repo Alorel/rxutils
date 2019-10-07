@@ -3,6 +3,7 @@ import {noop, Observer} from 'rxjs';
 /**
  * Creates an observer to be passed to .subscribe() calls that blackholes errors and completions. Useful
  * for instances where you handle/log errors as part of the pipeline, e.g. using the logError operator.
+ * @since 1.1.0
  * @kind Utility
  * @param callback Handler for the next() observer
  * @param thisArg Optional `this` argument to bind the callback to.

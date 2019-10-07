@@ -24,6 +24,7 @@ export function innerFilter<IO>(
 /**
  * An rxjs map operator that performs Array.prototype.filter on the input array.
  * @kind Operator
+ * @since 1.2.0
  * @param filterFn Callback for Array.prototype.filter
  * @param thisArg What to bind the filter function to; passed to Array.prototype.filter
  * @example

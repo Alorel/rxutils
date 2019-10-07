@@ -5,6 +5,7 @@ import {distinctUntilChanged} from 'rxjs/operators';
 /**
  * {@link distinctUntilChanged} with lodash's isEqual as the comparator function.
  * Uses lodash in commonjs and lodash-es in es2015.
+ * @since 1.0.0
  * @kind Operator
  * @see https://lodash.com/docs/#isEqual
  * @example

@@ -4,6 +4,7 @@ import {rng} from '../internal/rng';
 
 /**
  * Same as the debounceTime operator, but debounces by a random duration
+ * @since 1.0.0
  * @kind Operator
  * @param lower Minimum debounce duration
  * @param upper Maximum debounce duration

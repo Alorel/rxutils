@@ -3,6 +3,7 @@ import {tap} from 'rxjs/operators';
 
 /**
  * Shorthand for <code>tap(noop, tapFunction)</code>
+ * @since 1.0.0
  * @param tapFn The tap function accepting an error argument
  * @kind Operator
  * @see https://rxjs.dev/api/operators/tap
