@@ -36,6 +36,7 @@ const DEFAULT_LANG = 'typescript';
 const referenceLinks = {
   MonoTypeOperatorFunction: 'https://rxjs.dev/api/index/interface/MonoTypeOperatorFunction',
   Observable: 'https://rxjs.dev/api/index/class/Observable',
+  ObservableInput: 'https://rxjs.dev/api/index/type-alias/ObservableInput',
   Observer: 'https://rxjs.dev/api/index/interface/Observer',
   OperatorFunction: 'https://rxjs.dev/api/index/interface/OperatorFunction',
   Pick: 'https://www.typescriptlang.org/docs/handbook/utility-types.html#picktk',
