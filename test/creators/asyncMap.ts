@@ -105,4 +105,9 @@ describe('creators/asyncMap', function () {
       expect(await o$.toPromise()).to.deep.eq([2, 4, 6]);
     });
   });
+
+  it('Should accept a promise input', async () => {
+    const v$ = asyncMap([1, 2, 3], v => Promise.resolve(v * 2));
+    expect(await v$.toPromise()).to.deep.eq([2, 4, 6]);
+  });
 });
