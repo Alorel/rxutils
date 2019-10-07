@@ -8,6 +8,8 @@ Counts how many times the source observable emits.
 |---------------|-----------------|----------|--------------|-------------------|
 | emitInitialZero | If set to true, it will immediately emit 0 when subscribed to | boolean | No | false |
 
+*Added in version 1.0.0*
+
 **Example**:
 ```typescript
 import {of} from 'rxjs';
@@ -18,4 +20,4 @@ of('foo', 'bar', 'qux')
   .subscribe() // emits 1, then 2, then 3 and completes
 ```
 
-*Defined in [operators/countEmissions.ts:15:30](https://github.com/Alorel/rxutils/blob/bc77141/src/operators/countEmissions.ts#L15).*
+*Defined in [operators/countEmissions.ts:16:30](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/countEmissions.ts#L16).*

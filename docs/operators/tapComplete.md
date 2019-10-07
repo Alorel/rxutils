@@ -8,6 +8,8 @@ Shorthand for <code>tap(noop, noop, tapFunction)</code>
 |---------------|-----------------|----------|--------------|-------------------|
 | tapFn | Tap function to execute when the source completes | () => void | No |  |
 
+*Added in version 1.0.0*
+
 **See**: https://rxjs.dev/api/operators/tap
 
 **Example**:
@@ -25,4 +27,4 @@ of('foo')
 // Logs "complete" then "definitely complete"
 ```
 
-*Defined in [operators/tapComplete.ts:22:27](https://github.com/Alorel/rxutils/blob/bc77141/src/operators/tapComplete.ts#L22).*
+*Defined in [operators/tapComplete.ts:23:27](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/tapComplete.ts#L23).*

@@ -8,6 +8,8 @@ Shorthand for <code>source.pipe(filter(v => !!v), take(num))</code>
 |---------------|-----------------|----------|--------------|-------------------|
 | numToTake | Number of emissions to take. Passed on to rxjs' take() operator | number | No |  |
 
+*Added in version 1.0.0*
+
 **Example**:
 ```typescript
 import {of} from 'rxjs';
@@ -19,4 +21,4 @@ of(false, true, 1, 0, 5, undefined, 'foo', null)
 // outputs true, 1, 5
 ```
 
-*Defined in [operators/takeTruthy.ts:18:26](https://github.com/Alorel/rxutils/blob/bc77141/src/operators/takeTruthy.ts#L18).*
+*Defined in [operators/takeTruthy.ts:19:26](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/takeTruthy.ts#L19).*

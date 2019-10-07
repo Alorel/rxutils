@@ -10,6 +10,8 @@ for instances where you handle/log errors as part of the pipeline, e.g. using th
 | callback | Handler for the next() observer | (value: T) => void | No |  |
 | thisArg | Optional `this` argument to bind the callback to. | any | :heavy_check_mark: Yes |  |
 
+*Added in version 1.1.0*
+
 **Example**:
 ```typescript
 import {of} from 'rxjs';
@@ -20,4 +22,4 @@ of(1).subscribe(nextObserver(v => {
 }));
 ```
 
-*Defined in [util/nextObserver.ts:17:28](https://github.com/Alorel/rxutils/blob/bc77141/src/util/nextObserver.ts#L17).*
+*Defined in [util/nextObserver.ts:18:28](https://github.com/Alorel/rxutils/blob/8170cb0/src/util/nextObserver.ts#L18).*

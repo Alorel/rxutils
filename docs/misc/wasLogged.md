@@ -10,6 +10,8 @@ Check if the given error was logged by the {@link logError} operator
 
 **Returns**: True if the input is truthy and has been logged, false otherwise
 
+*Added in version 1.0.0*
+
 **Example**:
 ```typescript
 import {throwError, noop} from 'rxjs';
@@ -43,4 +45,4 @@ throwError('foo')
   .subscribe(noop, noop);
 ```
 
-*Defined in [operators/logError.ts:43:25](https://github.com/Alorel/rxutils/blob/bc77141/src/operators/logError.ts#L43).*
+*Defined in [operators/logError.ts:44:25](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/logError.ts#L44).*

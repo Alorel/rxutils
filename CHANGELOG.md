@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/Alorel/rxutils/compare/1.2.0...1.3.0) (2019-10-07)
+
+
+### Documentation
+
+* Added missing `[@since](https://github.com/since)` tags to typedoc ([8170cb0](https://github.com/Alorel/rxutils/commit/8170cb0))
+
+
+### Features
+
+* **Creators:** asyncMap creator added ([09a207c](https://github.com/Alorel/rxutils/commit/09a207c))
+
 # [1.2.0](https://github.com/Alorel/rxutils/compare/1.1.0...1.2.0) (2019-10-06)
 
 

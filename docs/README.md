@@ -1,7 +1,8 @@
-# rxutils 1.2.0 documentation
+# rxutils 1.3.0 documentation
 
 ## Creators
 
+- [asyncMap](creators/asyncMap.md)
 - [intervalRandom](creators/intervalRandom.md)
 
 ## Functions

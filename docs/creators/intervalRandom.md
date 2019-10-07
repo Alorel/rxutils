@@ -12,6 +12,8 @@ An interval that emits with random delays
 
 **Returns**: An observable that emits the iteration index, starting at 0
 
+*Added in version 1.0.0*
+
 **Example**:
 ```typescript
 import {intervalRandom} from '@aloreljs/rxutils';
@@ -21,4 +23,4 @@ intervalRandom(1000, 2000).subscribe(); // emit every 1-2 seconds on the default
 intervalRandom(1000, 2000, asapScheduler).subscribe(); // emit every 1-2 seconds on the ASAP scheduler
 ```
 
-*Defined in [creators/intervalRandom.ts:29:30](https://github.com/Alorel/rxutils/blob/bc77141/src/creators/intervalRandom.ts#L29).*
+*Defined in [creators/intervalRandom.ts:30:30](https://github.com/Alorel/rxutils/blob/8170cb0/src/creators/intervalRandom.ts#L30).*
