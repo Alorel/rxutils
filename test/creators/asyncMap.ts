@@ -127,4 +127,14 @@ describe('creators/asyncMap', function () {
     const v$ = asyncMap([1, 2, 3], v => Promise.resolve(v * 2));
     expect(await v$.toPromise()).to.deep.eq([2, 4, 6]);
   });
+
+  it('Should observify filter method errors', () => {
+    const msg = Math.random().toString();
+
+    function mapper() {
+      throw new Error(msg);
+    }
+
+    asyncMap<any, any>([1], <any>mapper);
+  });
 });
