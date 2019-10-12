@@ -2,33 +2,50 @@ import {expect} from 'chai';
 import noop = require('lodash/noop');
 import {Observable, of, timer} from 'rxjs';
 import {finalize, map, skip, take, tap} from 'rxjs/operators';
-import {asyncMap, NOOP_OBSERVER} from '../../src';
+import {asyncFilter, asyncMap, NOOP_OBSERVER} from '../../src';
+
+type Def = [string, any];
+type Meth = typeof asyncMap | typeof asyncFilter;
+
+const _tAsyncMapFilterCommon = {
+  inpNotArray(meth: Meth): Def {
+    return <Def>Object.freeze(['Should throw if input is not an array', (cb: any) => {
+      let errored = false;
+      let emitted = false;
+      meth.call(null, <any>1, <any>noop)
+        .pipe(
+          tap(() => emitted = true, () => errored = true),
+          finalize(() => {
+            if (emitted) {
+              cb(new Error('Emitted'));
+            } else if (!errored) {
+              cb(new Error('Did not error'));
+            } else {
+              cb();
+            }
+          })
+        )
+        .subscribe(NOOP_OBSERVER);
+    }]);
+  },
+  sameArray(meth: Meth): Def {
+    return <Def>Object.freeze(['Should emit the same array if it\'s empty', () => {
+      const arr: any[] = [];
+
+      return meth.call(null, <any>arr, <any>noop).toPromise()
+        .then((v: any) => {
+          expect(v).to.eq(arr);
+        });
+    }]);
+  }
+};
+
+Object.freeze(_tAsyncMapFilterCommon);
+export {_tAsyncMapFilterCommon};
 
 describe('creators/asyncMap', function () {
-  it('Should throw if input is not an array', cb => {
-    let errored = false;
-    let emitted = false;
-    asyncMap(<any>1, <any>noop)
-      .pipe(
-        tap(() => emitted = true, () => errored = true),
-        finalize(() => {
-          if (emitted) {
-            cb(new Error('Emitted'));
-          } else if (!errored) {
-            cb(new Error('Did not error'));
-          } else {
-            cb();
-          }
-        })
-      )
-      .subscribe(NOOP_OBSERVER);
-  });
-
-  it('Should emit the same array if it\'s empty', async () => {
-    const arr: any[] = [];
-    const o$ = asyncMap(arr, <any>noop);
-    expect(await o$.toPromise()).to.eq(arr);
-  });
+  it.apply(it, <any>_tAsyncMapFilterCommon.inpNotArray(asyncMap));
+  it.apply(it, <any>_tAsyncMapFilterCommon.sameArray(asyncMap));
 
   describe('emitIntermediate', () => {
     function mapper(inp: number, idx: number): Observable<number> {
