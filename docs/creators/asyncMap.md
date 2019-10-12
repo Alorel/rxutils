@@ -6,10 +6,10 @@ Map the input array using the given asynchronous mapping function
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| input | The input array | I[] | No |  |
-| mapper | The mapping function | (value: I, index: number, array: I[]) => [ObservableInput](https://rxjs.dev/api/index/type-alias/ObservableInput)\<O> | No |  |
-| emitIntermediate | When false (default), uses forkJoin to emit the output and therefore emits only once; When true, uses combineLatest and potentially emits more than once. | boolean | No | false |
-| thisArg | thisArg to pass to Array.prototype.map | any | :heavy_check_mark: Yes |  |
+| input | The input array | <span>I[]</span> | No |  |
+| mapper | The mapping function | <span>(value: I, index: number, array: I[]) => [ObservableInput](https://rxjs.dev/api/index/type-alias/ObservableInput)\<O></span> | No |  |
+| emitIntermediate | When false (default), uses forkJoin to emit the output and therefore emits only once; When true, uses combineLatest and potentially emits more than once. | <span>boolean</span> | No | false |
+| thisArg | thisArg to pass to Array.prototype.map | <span>any</span> | :heavy_check_mark: Yes |  |
 
 **Returns**: An observable of mapped values
 
@@ -33,4 +33,4 @@ of([1, 2, 3])
 // outputs [2, 4, 6]
 ```
 
-*Defined in [creators/asyncMap.ts:30:24](https://github.com/Alorel/rxutils/blob/8170cb0/src/creators/asyncMap.ts#L30).*
+*Defined in [creators/asyncMap.ts:28:24](https://github.com/Alorel/rxutils/blob/14b60f9/src/creators/asyncMap.ts#L28).*

@@ -6,8 +6,8 @@ An rxjs map operator that performs Array.prototype.filter on the input array.
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| filterFn | Callback for Array.prototype.filter | (value: IO, index: number, array: IO[]) => boolean | No |  |
-| thisArg | What to bind the filter function to; passed to Array.prototype.filter | any | :heavy_check_mark: Yes |  |
+| filterFn | Callback for Array.prototype.filter | <span>(value: IO, index: number, array: IO[]) => boolean</span> | No |  |
+| thisArg | What to bind the filter function to; passed to Array.prototype.filter | <span>any</span> | :heavy_check_mark: Yes |  |
 
 **Example**:
 ```typescript
@@ -20,15 +20,15 @@ of([1, 2, 3])
 // outputs [1, 3]
 ```
 
-*Defined in [operators/innerFilter.ts:19:27](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/innerFilter.ts#L19).*
+*Defined in [operators/innerFilter.ts:19:27](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/innerFilter.ts#L19).*
 ## innerFilter\<I, O>(filterFn: (value: I, index: number, array: I[]) => boolean, thisArg?: any): [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction)\<I[], O[]>
 
 An rxjs map operator that performs Array.prototype.filter on the input array.
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| filterFn | Callback for Array.prototype.filter | (value: I, index: number, array: I[]) => boolean | No |  |
-| thisArg | What to bind the filter function to; passed to Array.prototype.filter | any | :heavy_check_mark: Yes |  |
+| filterFn | Callback for Array.prototype.filter | <span>(value: I, index: number, array: I[]) => boolean</span> | No |  |
+| thisArg | What to bind the filter function to; passed to Array.prototype.filter | <span>any</span> | :heavy_check_mark: Yes |  |
 
 *Added in version 1.2.0*
 
@@ -45,4 +45,4 @@ numbers$.subscribe();
 // outputs [1, 3]
 ```
 
-*Defined in [operators/innerFilter.ts:41:27](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/innerFilter.ts#L41).*
+*Defined in [operators/innerFilter.ts:41:27](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/innerFilter.ts#L41).*

@@ -7,8 +7,8 @@ for instances where you handle/log errors as part of the pipeline, e.g. using th
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| callback | Handler for the next() observer | (value: T) => void | No |  |
-| thisArg | Optional `this` argument to bind the callback to. | any | :heavy_check_mark: Yes |  |
+| callback | Handler for the next() observer | <span>(value: T) => void</span> | No |  |
+| thisArg | Optional `this` argument to bind the callback to. | <span>any</span> | :heavy_check_mark: Yes |  |
 
 *Added in version 1.1.0*
 
@@ -22,4 +22,4 @@ of(1).subscribe(nextObserver(v => {
 }));
 ```
 
-*Defined in [util/nextObserver.ts:18:28](https://github.com/Alorel/rxutils/blob/8170cb0/src/util/nextObserver.ts#L18).*
+*Defined in [util/nextObserver.ts:18:28](https://github.com/Alorel/rxutils/blob/14b60f9/src/util/nextObserver.ts#L18).*

@@ -6,8 +6,8 @@ Same as the debounceTime operator, but debounces by a random duration
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| lower | Minimum debounce duration | number | No |  |
-| upper | Maximum debounce duration | number | No |  |
+| lower | Minimum debounce duration | <span>number</span> | No |  |
+| upper | Maximum debounce duration | <span>number</span> | No |  |
 
 *Added in version 1.0.0*
 
@@ -21,4 +21,4 @@ getSomeObservable()
 // Works like debounceTime, but debounces by anywhere between 100 and 200ms every time
 ```
 
-*Defined in [operators/debounceRandom.ts:19:30](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/debounceRandom.ts#L19).*
+*Defined in [operators/debounceRandom.ts:19:30](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/debounceRandom.ts#L19).*

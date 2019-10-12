@@ -6,7 +6,7 @@ Check if the given error was logged by the {@link logError} operator
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| v | Error to check | any | No |  |
+| v | Error to check | <span>any</span> | No |  |
 
 **Returns**: True if the input is truthy and has been logged, false otherwise
 
@@ -45,4 +45,4 @@ throwError('foo')
   .subscribe(noop, noop);
 ```
 
-*Defined in [operators/logError.ts:44:25](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/logError.ts#L44).*
+*Defined in [operators/logError.ts:44:25](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/logError.ts#L44).*

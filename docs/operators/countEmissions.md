@@ -6,7 +6,7 @@ Counts how many times the source observable emits.
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| emitInitialZero | If set to true, it will immediately emit 0 when subscribed to | boolean | No | false |
+| emitInitialZero | If set to true, it will immediately emit 0 when subscribed to | <span>boolean</span> | No | false |
 
 *Added in version 1.0.0*
 
@@ -20,4 +20,4 @@ of('foo', 'bar', 'qux')
   .subscribe() // emits 1, then 2, then 3 and completes
 ```
 
-*Defined in [operators/countEmissions.ts:16:30](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/countEmissions.ts#L16).*
+*Defined in [operators/countEmissions.ts:16:30](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/countEmissions.ts#L16).*

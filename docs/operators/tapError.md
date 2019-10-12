@@ -6,7 +6,7 @@ Shorthand for <code>tap(noop, tapFunction)</code>
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| tapFn | The tap function accepting an error argument | (e?: E) => void | No |  |
+| tapFn | The tap function accepting an error argument | <span>(e?: E) => void</span> | No |  |
 
 *Added in version 1.0.0*
 
@@ -27,4 +27,4 @@ throwError(new Error('foo'))
 // Logs 'error', then the error object
 ```
 
-*Defined in [operators/tapError.ts:23:24](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/tapError.ts#L23).*
+*Defined in [operators/tapError.ts:23:24](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/tapError.ts#L23).*

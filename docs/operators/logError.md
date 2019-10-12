@@ -6,9 +6,9 @@ A tap() that logs errors. Non-null object errors will not be logged more than on
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| identifier | An optional identifier for the logger. When provided, it'll be passed as the first argument to the logger while the error will come second | any | :heavy_check_mark: Yes |  |
-| logger | Logger to use, defaults to console.error | (...args: any[]) => void | :heavy_check_mark: Yes |  |
-| loggerThisArg | If using a custom logger, what to use for "this" when binding a the identifier | any | :heavy_check_mark: Yes |  |
+| identifier | An optional identifier for the logger. When provided, it'll be passed as the first argument to the logger while the error will come second | <span>any</span> | :heavy_check_mark: Yes |  |
+| logger | Logger to use, defaults to console.error | <span>(...args: any[]) => void</span> | :heavy_check_mark: Yes |  |
+| loggerThisArg | If using a custom logger, what to use for "this" when binding a the identifier | <span>any</span> | :heavy_check_mark: Yes |  |
 
 **Example**:
 ```typescript
@@ -27,4 +27,4 @@ combined.subscribe();
 // Does not output [combined error] [...]
 ```
 
-*Defined in [operators/logError.ts:104:24](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/logError.ts#L104).*
+*Defined in [operators/logError.ts:104:24](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/logError.ts#L104).*

@@ -1,3 +1,22 @@
+# [1.4.0](https://github.com/Alorel/rxutils/compare/1.3.0...1.4.0) (2019-10-12)
+
+
+### Bug Fixes
+
+* Export ArrayMapFn type from root ([](https://github.com/Alorel/rxutils/commit/f41b351))
+
+
+### Features
+
+* **creators:** asyncFilter creator ([](https://github.com/Alorel/rxutils/commit/3976251))
+* **util:** observify function ([](https://github.com/Alorel/rxutils/commit/267212b))
+
+
+### Tests
+
+* **asyncMap:** Added a test for a promise input ([](https://github.com/Alorel/rxutils/commit/771c484))
+* **asyncMap:** Added test to forward errors ([](https://github.com/Alorel/rxutils/commit/14b60f9))
+
 # [1.3.0](https://github.com/Alorel/rxutils/compare/1.2.0...1.3.0) (2019-10-07)
 
 

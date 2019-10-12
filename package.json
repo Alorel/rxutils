@@ -1,6 +1,6 @@
 {
   "name": "@aloreljs/rxutils",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Utility functions for rxjs",
   "publishConfig": {
     "access": "public"

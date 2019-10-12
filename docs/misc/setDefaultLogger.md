@@ -6,7 +6,7 @@ Sets the default logger used by the {@link logError} operator
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| logger | The new log function | (...args: any[]) => void | No |  |
+| logger | The new log function | <span>(...args: any[]) => void</span> | No |  |
 
 **Returns**: The old default log function
 
@@ -24,4 +24,4 @@ console.log(initialLogger === console.error); // true
 console.log(logger2 === myLogger); // true
 ```
 
-*Defined in [operators/logError.ts:64:32](https://github.com/Alorel/rxutils/blob/8170cb0/src/operators/logError.ts#L64).*
+*Defined in [operators/logError.ts:64:32](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/logError.ts#L64).*

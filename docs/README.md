@@ -1,7 +1,8 @@
-# rxutils 1.3.0 documentation
+# rxutils 1.4.0 documentation
 
 ## Creators
 
+- [asyncFilter](creators/asyncFilter.md)
 - [asyncMap](creators/asyncMap.md)
 - [intervalRandom](creators/intervalRandom.md)
 
@@ -27,8 +28,10 @@
 ## Type aliases
 
 - [ArrayMapFn](types/ArrayMapFn.md)
+- [ObservifyInput](types/ObservifyInput.md)
 
 ## Utilities
 
 - [nextObserver](util/nextObserver.md)
+- [observify](util/observify.md)
 - [NOOP_OBSERVER](util/NOOP_OBSERVER.md)
