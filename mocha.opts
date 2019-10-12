@@ -1,8 +1,0 @@
---check-leaks
---exit
---full-trace
--r ts-node/register
--r source-map-support/register
---recursive
---extension ts
-test
