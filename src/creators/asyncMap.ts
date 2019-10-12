@@ -1,7 +1,5 @@
-import {combineLatest, forkJoin, Observable, ObservableInput, of, throwError} from 'rxjs';
-
-// The tslint deprecation is a false positive
-//tslint:disable:deprecation
+import {Observable, ObservableInput} from 'rxjs';
+import {asyncMapInternal} from '../internal/asyncMapInternal';
 
 /**
  * Map the input array using the given asynchronous mapping function
@@ -33,13 +31,5 @@ export function asyncMap<I, O>(
   emitIntermediate = false,
   thisArg?: any
 ): Observable<O[]> {
-  if (!Array.isArray(<any>input)) {
-    return throwError('asyncMap input not an array');
-  } else if (!input.length) {
-    return of<any[]>(input);
-  }
-
-  const method: typeof forkJoin | typeof combineLatest = emitIntermediate ? combineLatest : forkJoin;
-
-  return <Observable<O[]>>method.call(null, input.map(mapper, thisArg));
+  return asyncMapInternal<I, O>(input, mapper, emitIntermediate, thisArg, 'asyncMap');
 }
