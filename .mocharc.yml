@@ -2,6 +2,7 @@ checkLeaks: true
 exit: true
 fullTrace: false
 require:
+  - symbol-observable
   - ts-node/register
   - source-map-support/register
 recursive: true
