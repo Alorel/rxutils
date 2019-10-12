@@ -18,7 +18,8 @@ import {
   ReferenceType,
   ReflectionType,
   Type,
-  TypeParameterType
+  TypeParameterType,
+  UnionType
 } from 'typedoc/dist/lib/models';
 import {SourceReference} from 'typedoc/dist/lib/models/sources/file';
 import find = require('lodash/find');
@@ -106,6 +107,8 @@ function stringifyType(type?: Type | null, referenceLineNumbers = true): string 
         return out;
       case 'reflection':
         return stringifySignature((<ReflectionType>type).declaration.signatures![0], false);
+      case 'union':
+        return (<UnionType>type).types.map(t => stringifyType(t, referenceLineNumbers)).join(' | ');
       default:
         throw new Error(`Don't know how to stringify type ${type.type}`);
     }
@@ -276,7 +279,7 @@ class ChildProcessor {
           const paramsJoined = [
             p.name,
             p.comment!.text.replace(/\n/g, ' '),
-            typeStr,
+            `<span>${typeStr.replace(/\|/g, '&vert;')}</span>`,
             p.flags.isOptional ? ':heavy_check_mark: Yes' : 'No',
             hasDefault ? p.defaultValue!.trim() : ''
           ].join(' | ');
