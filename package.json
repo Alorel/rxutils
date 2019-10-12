@@ -15,7 +15,7 @@
     "rm:coverage": "rimraf coverage",
     "generate:index-test": "node ./generate-index-test.js",
     "pretest": "concurrently \"npm:rm:coverage\" \"npm:generate:index-test\"",
-    "test": "cross-env TS_NODE_PROJECT=tsconfig.test.json nyc mocha --opts ./mocha.opts",
+    "test": "cross-env TS_NODE_PROJECT=tsconfig.test.json nyc mocha",
     "test:watch": "npm --scripts-prepend-node-path=auto run test -- --watch",
     "tslint": "alo tslint -p tsconfig.test.json",
     "tslint:fix": "npm --scripts-prepend-node-path=auto run tslint -- --fix",
