@@ -9,3 +9,5 @@ export {tapError} from './tapError';
 export {tapComplete} from './tapComplete';
 export {logError} from './logError';
 export {innerFilter} from './innerFilter';
+export {innerReduce} from './innerReduce';
+export {innerReduceRight} from './innerReduceRight';
