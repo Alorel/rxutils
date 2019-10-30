@@ -1,4 +1,4 @@
-# rxutils 1.4.0 documentation
+# rxutils 1.5.0 documentation
 
 ## Creators
 
@@ -18,6 +18,8 @@
 - [distinctUntilDeepChanged](operators/distinctUntilDeepChanged.md)
 - [innerFilter](operators/innerFilter.md)
 - [innerMap](operators/innerMap.md)
+- [innerReduce](operators/innerReduce.md)
+- [innerReduceRight](operators/innerReduceRight.md)
 - [logError](operators/logError.md)
 - [pickProps](operators/pickProps.md)
 - [takeFalsy](operators/takeFalsy.md)
@@ -28,10 +30,12 @@
 ## Type aliases
 
 - [ArrayMapFn](types/ArrayMapFn.md)
+- [ArrayReducer](types/ArrayReducer.md)
 - [ObservifyInput](types/ObservifyInput.md)
 
 ## Utilities
 
+- [nextComplete](util/nextComplete.md)
 - [nextObserver](util/nextObserver.md)
 - [observify](util/observify.md)
 - [NOOP_OBSERVER](util/NOOP_OBSERVER.md)

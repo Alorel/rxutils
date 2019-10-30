@@ -20,7 +20,7 @@ of([1, 2, 3])
 // outputs [1, 3]
 ```
 
-*Defined in [operators/innerFilter.ts:19:27](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/innerFilter.ts#L19).*
+*Defined in [operators/innerFilter.ts:19:27](https://github.com/Alorel/rxutils/blob/37f00a0/src/operators/innerFilter.ts#L19).*
 ## innerFilter\<I, O>(filterFn: (value: I, index: number, array: I[]) => boolean, thisArg?: any): [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction)\<I[], O[]>
 
 An rxjs map operator that performs Array.prototype.filter on the input array.
@@ -45,4 +45,4 @@ numbers$.subscribe();
 // outputs [1, 3]
 ```
 
-*Defined in [operators/innerFilter.ts:41:27](https://github.com/Alorel/rxutils/blob/14b60f9/src/operators/innerFilter.ts#L41).*
+*Defined in [operators/innerFilter.ts:41:27](https://github.com/Alorel/rxutils/blob/37f00a0/src/operators/innerFilter.ts#L41).*

@@ -1,3 +1,16 @@
+# [1.5.0](https://github.com/Alorel/rxutils/compare/1.4.0...1.5.0) (2019-10-30)
+
+
+### Features
+
+* **operators:** innerReduce and innerReduceRight operators added ([](https://github.com/Alorel/rxutils/commit/5f6147e))
+* **util:** nextComplete utility added ([](https://github.com/Alorel/rxutils/commit/37f00a0))
+
+
+### Tests
+
+* Fixed some suite names ([](https://github.com/Alorel/rxutils/commit/5c52dff))
+
 # [1.4.0](https://github.com/Alorel/rxutils/compare/1.3.0...1.4.0) (2019-10-12)
 
 
