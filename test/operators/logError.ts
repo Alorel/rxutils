@@ -7,7 +7,7 @@ import {v4 as uuid} from 'uuid';
 import {setDefaultLogger, wasLogged} from '../../src';
 import {logError, tapError} from '../../src/operators';
 
-describe('logError', () => {
+describe('operators/logError', () => {
   describe('No args', () => {
     let spy: sinon.SinonSpy;
     let oldConsoleError: any;

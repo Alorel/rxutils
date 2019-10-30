@@ -4,7 +4,7 @@ import {nextObserver} from '../../src';
 
 //tslint:disable:no-identical-functions
 
-describe('nextObserver', function () {
+describe('util/nextObserver', function () {
   for (const m of ['complete', 'error']) {
     it(`${m} should be an rxjs noop`, () => {
       expect(nextObserver(rxNoop)[m]).to.equal(rxNoop);

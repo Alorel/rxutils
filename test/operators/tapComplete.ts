@@ -4,7 +4,7 @@ import {Observable, of, throwError} from 'rxjs';
 import {finalize, switchMap, tap} from 'rxjs/operators';
 import {tapComplete} from '../../src/operators';
 
-describe('tapComplete', () => {
+describe('operators/tapComplete', () => {
   let nexts = 0,
     errors = 0,
     completions = 0;
