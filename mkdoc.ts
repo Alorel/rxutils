@@ -17,6 +17,7 @@ import {
   IntrinsicType,
   ReferenceType,
   ReflectionType,
+  StringLiteralType,
   Type,
   TypeParameterType,
   UnionType
@@ -42,7 +43,8 @@ const referenceLinks = {
   OperatorFunction: 'https://rxjs.dev/api/index/interface/OperatorFunction',
   Pick: 'https://www.typescriptlang.org/docs/handbook/utility-types.html#picktk',
   PropertyKey: '#',
-  SchedulerLike: 'https://rxjs.dev/api/index/interface/SchedulerLike'
+  SchedulerLike: 'https://rxjs.dev/api/index/interface/SchedulerLike',
+  Subject: 'https://rxjs.dev/api/index/class/Subject'
 };
 const CUSTOM_WRITE_PATHS = {
   setDefaultLogger: 'misc/setDefaultLogger.md',
@@ -109,6 +111,8 @@ function stringifyType(type?: Type | null, referenceLineNumbers = true): string 
         return stringifySignature((<ReflectionType>type).declaration.signatures![0], false);
       case 'union':
         return (<UnionType>type).types.map(t => stringifyType(t, referenceLineNumbers)).join(' | ');
+      case 'stringLiteral':
+        return `'${(<StringLiteralType>type).value}'`;
       default:
         throw new Error(`Don't know how to stringify type ${type.type}`);
     }
