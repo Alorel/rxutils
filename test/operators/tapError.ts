@@ -4,7 +4,7 @@ import {of, throwError} from 'rxjs';
 import {finalize, switchMap, tap} from 'rxjs/operators';
 import {tapError} from '../../src/operators';
 
-describe('tapError', () => {
+describe('operators/tapError', () => {
   let nexts = 0,
     errors = 0,
     completions = 0,

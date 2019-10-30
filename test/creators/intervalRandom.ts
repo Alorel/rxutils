@@ -3,7 +3,7 @@ import {last, take, tap, toArray} from 'rxjs/operators';
 import {intervalRandom} from '../../src/creators/intervalRandom';
 import {DummyScheduler, DummySchedulerAction} from '../_util/DummyScheduler';
 
-describe('creators/randomInterval', function () {
+describe('creators/intervalRandom', function () {
   const errorTests: [string, [any, any], any, string][] = [
     ['lower is NaN', ['1', 1], TypeError, 'Lower is not a number'],
     ['upper is NaN', [1, '1'], TypeError, 'Upper is not a number'],
