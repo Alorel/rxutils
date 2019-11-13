@@ -15,7 +15,7 @@ describe('operators/logError', () => {
     before('Spy', () => {
       oldConsoleError = console.error;
       console.error = noop;
-      spy = sinon.spy(console, 'error');
+      spy = sinon.spy<any, any>(console, 'error');
     });
 
     after('Unspy', () => {
@@ -106,7 +106,7 @@ describe('operators/logError', () => {
     before('Spy', () => { //tslint:disable-line:no-identical-functions
       oldConsoleError = console.error;
       console.error = noop;
-      spy = sinon.spy(console, 'error');
+      spy = sinon.spy<any, any>(console, 'error');
     });
 
     after('Unspy', () => {
@@ -143,7 +143,7 @@ describe('setDefaultLogger', () => {
   let logSpy: sinon.SinonSpy;
 
   before('Set', () => {
-    oldLogger = setDefaultLogger(logSpy = sinon.spy(function () {
+    oldLogger = setDefaultLogger(logSpy = sinon.spy<any>(function () {
       // noop
     }));
   });
