@@ -174,7 +174,7 @@ describe('wasLogged', () => {
     throwError(new Error())
       .pipe(
         tapError(e => {
-          err1 = <Error>e;
+          err1 = e;
         }),
         finalize(cb)
       )
@@ -185,7 +185,7 @@ describe('wasLogged', () => {
     throwError(new Error())
       .pipe(
         tapError(e => {
-          err2 = <Error>e;
+          err2 = e;
         }),
         logError(undefined, noop),
         finalize(cb)

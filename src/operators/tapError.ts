@@ -20,6 +20,6 @@ import {tap} from 'rxjs/operators';
  *   .subscribe();
  * // Logs 'error', then the error object
  */
-export function tapError<IO, E = Error>(tapFn: (e?: E) => void): MonoTypeOperatorFunction<IO> {
+export function tapError<IO, E = Error>(tapFn: (e: E) => void): MonoTypeOperatorFunction<IO> {
   return tap(noop, tapFn);
 }
