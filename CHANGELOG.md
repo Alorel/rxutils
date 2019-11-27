@@ -1,3 +1,20 @@
+## [1.5.1](https://github.com/Alorel/rxutils/compare/1.5.0...1.5.1) (2019-11-27)
+
+
+### Bug Fixes
+
+* **operators:** tapError's callback argument is no longer optional ([](https://github.com/Alorel/rxutils/commit/8c9d510))
+
+
+### Documentation
+
+* **nextComplete:** Add missing nextComplete example ([](https://github.com/Alorel/rxutils/commit/599c09b))
+
+
+### Maintenance
+
+* Updated dev dependecies ([](https://github.com/Alorel/rxutils/commit/c49eecf))
+
 # [1.5.0](https://github.com/Alorel/rxutils/compare/1.4.0...1.5.0) (2019-10-30)
 
 

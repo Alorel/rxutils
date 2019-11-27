@@ -13,4 +13,4 @@ import {NOOP_OBSERVER} from '@aloreljs/rxutils';
 of(1).subscribe(NOOP_OBSERVER);
 ```
 
-*Defined in [util/NOOP_OBSERVER.ts:14:26](https://github.com/Alorel/rxutils/blob/37f00a0/src/util/NOOP_OBSERVER.ts#L14).*
+*Defined in [util/NOOP_OBSERVER.ts:14:26](https://github.com/Alorel/rxutils/blob/c49eecf/src/util/NOOP_OBSERVER.ts#L14).*
