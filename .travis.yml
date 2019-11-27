@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - stable
   - lts/dubnium
+  - &latestLts lts/erbium
 
 env:
   global:
@@ -32,7 +33,7 @@ stages:
 jobs:
   include:
     - stage: Release
-      node_js: stable
+      node_js: *latestLts
       before_install: npm i -g yarn
       before_script:
         - npm run build
