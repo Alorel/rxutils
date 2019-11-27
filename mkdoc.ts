@@ -15,6 +15,7 @@ import {
   ArrayType,
   Comment,
   IntrinsicType,
+  PredicateType,
   ReferenceType,
   ReflectionType,
   StringLiteralType,
@@ -113,6 +114,8 @@ function stringifyType(type?: Type | null, referenceLineNumbers = true): string 
         return (<UnionType>type).types.map(t => stringifyType(t, referenceLineNumbers)).join(' | ');
       case 'stringLiteral':
         return `'${(<StringLiteralType>type).value}'`;
+      case 'predicate':
+        return `${(<PredicateType>type).name}`;
       default:
         throw new Error(`Don't know how to stringify type ${type.type}`);
     }
