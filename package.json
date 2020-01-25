@@ -58,7 +58,7 @@
     "chai": "~4.2.0",
     "concurrently": "~5.0.0",
     "coveralls": "~3.0.9",
-    "cross-env": "~6.0.0",
+    "cross-env": "~7.0.0",
     "fs-extra": "~8.1.0",
     "glob": "~7.1.6",
     "lazy-get-decorator": "~2.2.0",
