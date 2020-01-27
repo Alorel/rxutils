@@ -42,7 +42,7 @@
     "@alorel-personal/tslint-rules": "5.0.6",
     "@semantic-release/changelog": "~3.0.6",
     "@semantic-release/exec": "~3.3.5",
-    "@semantic-release/git": "~7.0.18",
+    "@semantic-release/git": "~9.0.0",
     "@types/chai": "~4.2.5",
     "@types/fs-extra": "~8.0.0",
     "@types/lodash": "~4.14.149",
