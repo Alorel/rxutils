@@ -1,3 +1,15 @@
+## [1.5.2](https://github.com/Alorel/rxutils/compare/1.5.1...1.5.2) (2020-02-24)
+
+
+### Bug Fixes
+
+* Removed FESM builds as they were breaking on /operators imports ([](https://github.com/Alorel/rxutils/commit/47a15e4))
+
+
+### Maintenance
+
+* Update dependencies ([](https://github.com/Alorel/rxutils/commit/c21d2f7))
+
 ## [1.5.1](https://github.com/Alorel/rxutils/compare/1.5.0...1.5.1) (2019-11-27)
 
 

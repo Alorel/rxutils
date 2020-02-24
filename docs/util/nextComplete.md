@@ -38,4 +38,4 @@ Next (2): foo
 Completed (2)
 ```
 
-*Defined in [util/nextComplete.ts:34:28](https://github.com/Alorel/rxutils/blob/c49eecf/src/util/nextComplete.ts#L34).*
+*Defined in [util/nextComplete.ts:34:28](https://github.com/Alorel/rxutils/blob/c21d2f7/src/util/nextComplete.ts#L34).*
