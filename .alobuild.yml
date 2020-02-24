@@ -22,9 +22,7 @@ build:
   skip-clean: true
   targets:
     - esm5
-    - fesm5
     - esm2015
-    - fesm2015
   externals:
     - tslib
     - rxjs
