@@ -52,7 +52,7 @@
     "@types/pluralize": "^0.0.29",
     "@types/rimraf": "^2.0.2",
     "@types/sinon": "^7.5.1",
-    "@types/uuid": "^3.4.5",
+    "@types/uuid": "^7.0.0",
     "@types/zen-observable": "^0.8.0",
     "bluebird": "^3.7.1",
     "chai": "^4.2.0",
