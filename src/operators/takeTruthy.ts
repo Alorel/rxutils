@@ -1,6 +1,5 @@
 import {OperatorFunction, pipe} from 'rxjs';
 import {filter, take} from 'rxjs/operators';
-import {isTruthy} from '../internal/isTruthy';
 
 /**
  * Shorthand for <code>source.pipe(filter(v => !!v), take(num))</code>
@@ -18,7 +17,7 @@ import {isTruthy} from '../internal/isTruthy';
  */
 export function takeTruthy<I, O extends I = I>(numToTake: number): OperatorFunction<I, O> {
   return pipe(
-    filter<I, O>(<any>isTruthy),
+    filter<I, O>(<any>Boolean),
     take<O>(numToTake)
   );
 }
