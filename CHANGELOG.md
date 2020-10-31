@@ -1,3 +1,21 @@
+## [1.5.3](https://github.com/Alorel/rxutils/compare/1.5.2...1.5.3) (2020-10-31)
+
+
+### Bug Fixes
+
+* **countEmissions:** Emit 0 if source completes without emitting ([](https://github.com/Alorel/rxutils/commit/5bc00f8))
+
+
+### Maintenance
+
+* Refresh package lock ([](https://github.com/Alorel/rxutils/commit/6c0137e))
+
+
+### Refactoring
+
+* **debounceRandom:** Remove extraneous function wrapper ([](https://github.com/Alorel/rxutils/commit/b6df7ef))
+* Remove internal isTruthy function ([](https://github.com/Alorel/rxutils/commit/e4a55b9))
+
 ## [1.5.2](https://github.com/Alorel/rxutils/compare/1.5.1...1.5.2) (2020-02-24)
 
 
