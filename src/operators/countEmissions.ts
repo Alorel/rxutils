@@ -1,4 +1,4 @@
-import {Observable, OperatorFunction, Subscriber} from 'rxjs';
+import {Observable, Operator, OperatorFunction} from 'rxjs';
 
 /**
  * Counts how many times the source observable emits.
@@ -14,26 +14,27 @@ import {Observable, OperatorFunction, Subscriber} from 'rxjs';
  *   .subscribe() // emits 1, then 2, then 3 and completes
  */
 export function countEmissions(emitInitialZero = false): OperatorFunction<any, number> {
-  return source => {
-    return new Observable<number>(subscriber => {
-      handler(source, subscriber, emitInitialZero);
-    });
+  const operator: Operator<any, number> = {
+    call(subscriber, source: Observable<any>) {
+      let numEmissions = 0;
+      if (emitInitialZero) {
+        subscriber.next(0);
+      }
+
+      return source.subscribe(
+        () => {
+          subscriber.next(++numEmissions);
+        },
+        subscriber.error.bind(subscriber),
+        () => {
+          if (!emitInitialZero && !numEmissions) {
+            subscriber.next(0);
+          }
+          subscriber.complete();
+        }
+      );
+    }
   };
-}
 
-function handler(source: Observable<any>, subscriber: Subscriber<number>, emitInitialZero: boolean): void {
-  let numEmissions = 0;
-  if (emitInitialZero) {
-    subscriber.next(0);
-  }
-
-  subscriber.add(
-    source.subscribe(
-      () => {
-        subscriber.next(++numEmissions);
-      },
-      subscriber.error.bind(subscriber),
-      subscriber.complete.bind(subscriber)
-    )
-  );
+  return s => s.lift({...operator});
 }
