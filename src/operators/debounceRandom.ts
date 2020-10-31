@@ -17,9 +17,5 @@ import {rng} from '../internal/rng';
  * // Works like debounceTime, but debounces by anywhere between 100 and 200ms every time
  */
 export function debounceRandom<T>(lower: number, upper: number): MonoTypeOperatorFunction<T> {
-  return source => source.pipe(
-    switchMap((value: T): Observable<T> => {
-      return timer(rng(lower, upper)).pipe(mapTo(value));
-    })
-  );
+  return switchMap((value: T): Observable<T> => timer(rng(lower, upper)).pipe(mapTo(value)));
 }
