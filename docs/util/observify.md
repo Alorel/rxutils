@@ -1,12 +1,12 @@
 # `Utility` observify
 
-## observify\<T>(inp: [ObservifyInput](https://github.com/Alorel/rxutils/blob/b6df7ef/src/types/ObservifyInput.ts#L8)\<T>): [Observable](https://rxjs.dev/api/index/class/Observable)\<T>
+## observify\<T>(inp: [ObservifyInput](https://github.com/Alorel/rxutils/blob/3fadbc6/src/types/ObservifyInput.ts#L8)\<T>): [Observable](https://rxjs.dev/api/index/class/Observable)\<T>
 
 Turns the input into an observable if it isn't one already
 
 | **Parameter** | **Description** | **Type** | **Optional** | **Default value** |
 |---------------|-----------------|----------|--------------|-------------------|
-| inp | The input | <span>[ObservifyInput](https://github.com/Alorel/rxutils/blob/b6df7ef/src/types/ObservifyInput.ts#L8)\<T></span> | No |  |
+| inp | The input | <span>[ObservifyInput](https://github.com/Alorel/rxutils/blob/3fadbc6/src/types/ObservifyInput.ts#L8)\<T></span> | No |  |
 
 *Added in version 1.4*
 
@@ -20,4 +20,4 @@ observify(Promise.resolve(2)).subscribe(); // outputs 2
 observify(3).subscribe(); // outputs 3
 ```
 
-*Defined in [util/observify.ts:25:25](https://github.com/Alorel/rxutils/blob/b6df7ef/src/util/observify.ts#L25).*
+*Defined in [util/observify.ts:25:25](https://github.com/Alorel/rxutils/blob/3fadbc6/src/util/observify.ts#L25).*

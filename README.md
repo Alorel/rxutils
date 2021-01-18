@@ -3,7 +3,7 @@
 Utility functions for rxjs
 
 ![Core](https://github.com/Alorel/rxutils/workflows/Core/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/Alorel/rxutils/badge.svg?branch=1.5.3)](https://coveralls.io/github/Alorel/rxutils?branch=1.5.3)
+[![Coverage Status](https://coveralls.io/repos/github/Alorel/rxutils/badge.svg?branch=1.6.0)](https://coveralls.io/github/Alorel/rxutils?branch=1.6.0)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Alorel/rxutils.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Alorel/rxutils/context:javascript)
 
 -----
@@ -23,7 +23,7 @@ of([1, 2, 3])
   .subscribe();
 ```
 
-Full API docs and examples for version 1.5.3 are available [here](https://github.com/Alorel/rxutils/tree/1.5.3/docs).
+Full API docs and examples for version 1.6.0 are available [here](https://github.com/Alorel/rxutils/tree/1.6.0/docs).
 Docs and examples for the latest version are available [here](http://bit.ly/rxutils-master-docs).
 
 # Installation

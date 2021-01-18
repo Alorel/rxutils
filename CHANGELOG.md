@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/Alorel/rxutils/compare/1.5.3...1.6.0) (2021-01-18)
+
+
+### Features
+
+* add finaliseObserver function ([](https://github.com/Alorel/rxutils/commit/3fadbc6))
+
 ## [1.5.3](https://github.com/Alorel/rxutils/compare/1.5.2...1.5.3) (2020-10-31)
 
 

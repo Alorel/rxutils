@@ -1,4 +1,4 @@
-# rxutils 1.5.3 documentation
+# rxutils 1.6.0 documentation
 
 ## Creators
 
@@ -35,6 +35,7 @@
 
 ## Utilities
 
+- [finaliseObserver](util/finaliseObserver.md)
 - [nextComplete](util/nextComplete.md)
 - [nextObserver](util/nextObserver.md)
 - [observify](util/observify.md)
