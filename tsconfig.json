@@ -1,31 +1,10 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "module": "commonjs",
-    "strictBindCallApply": true,
-    "target": "es5",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "newLine": "lf",
-    "noFallthroughCasesInSwitch": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "importHelpers": true,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "strict": true,
-    "stripInternal": true,
-    "declaration": false,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictPropertyInitialization": false,
-    "removeComments": false,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist"
+    "sourceMap": false,
+    "module": "es2015"
   },
-  "include": [
-    "src-esm"
+  "files": [
+    "projects/rxutils/index.ts"
   ]
 }

@@ -1,0 +1,27 @@
+{
+  "name": "@aloreljs/rxutils",
+  "version": "1.6.0",
+  "main": "index.js",
+  "module": "_bundle/esm2015/index.js",
+  "es2015": "_bundle/esm2015/index.js",
+  "repository": "git@github.com:Alorel/rxutils.git",
+  "types": "index.d.ts",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "node": "./index.js",
+      "es2015": "./_esm2015/index.js",
+      "default": "./_esm2015/index.js"
+    },
+    "./operators": {
+      "node": "./operators/index.js",
+      "es2015": "./_esm2015/operators/index.js",
+      "default": "./_esm2015/operators/index.js"
+    },
+    "./package.json": "./package.json"
+  }
+}
