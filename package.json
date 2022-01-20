@@ -67,7 +67,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.64.0",
     "rollup-plugin-typescript2": "^0.31.1",
-    "rxjs": "^6.6.7",
+    "rxjs": "^7.5.2",
     "semantic-release": "^19.0.2",
     "sinon": "^12.0.1",
     "source-map-support": "^0.5.21",
@@ -83,7 +83,7 @@
     "lodash": "^4.0.0"
   },
   "peerDependencies": {
-    "rxjs": "^6.0.0"
+    "rxjs": "^7.0.0"
   },
   "license": "MIT",
   "main": "index.js",

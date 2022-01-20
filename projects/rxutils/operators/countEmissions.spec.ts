@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {of} from 'rxjs';
+import {lastValueFrom, of} from 'rxjs';
 import {tap, toArray} from 'rxjs/operators';
 import {countEmissions} from './countEmissions';
 
@@ -16,15 +16,15 @@ describe('operators/countEmissions', () => {
     const outputStr = args[0] === undefined ? 'undefined' : args[0].toString();
 
     it(`Should emit ${output.join(', ')} when input is ${outputStr}`, async () => {
-      await of('foo', 'bar', 'qux')
+      const o$ = of('foo', 'bar', 'qux')
         .pipe(
           countEmissions(...args),
           toArray(),
           tap((emissions: number[]) => {
             expect(emissions).to.deep.eq(output);
           })
-        )
-        .toPromise();
+        );
+      await lastValueFrom(o$);
     });
   }
 });

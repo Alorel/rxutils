@@ -1,12 +1,8 @@
-import {from, Observable, of, type InteropObservable} from 'rxjs';
+import {from, Observable, of} from 'rxjs';
 import type {ObservifyInput} from '../types/ObservifyInput';
 
 function isPromiseLike<T>(inp: any): inp is PromiseLike<T> {
   return typeof inp?.then === 'function';
-}
-
-function isInterop<T>(inp: any): inp is InteropObservable<T> {
-  return !!inp && !!inp[/* istanbul ignore next */Symbol.observable || '@@observable'];
 }
 
 /**
@@ -25,7 +21,7 @@ function isInterop<T>(inp: any): inp is InteropObservable<T> {
 export function observify<T>(inp: ObservifyInput<T>): Observable<T> {
   if (inp instanceof Observable) {
     return inp;
-  } else if (isInterop<T>(inp) || isPromiseLike<T>(inp)) {
+  } else if (isPromiseLike<T>(inp)) {
     return from(inp);
   }
 

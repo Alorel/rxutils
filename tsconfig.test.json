@@ -5,6 +5,9 @@
     "module": "CommonJS"
   },
   "include": [
-    "projects/**/*.ts"
+    "projects/**/*.ts",
+    "typedoc.js",
+    "patch-doc-link.js",
+    "mkdoc.ts"
   ]
 }

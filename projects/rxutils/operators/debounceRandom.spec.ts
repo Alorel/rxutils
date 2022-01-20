@@ -26,13 +26,13 @@ describe('operators/debounceRandom', function () {
         map(v => v.toString()),
         toArray()
       )
-      .subscribe(
-        oot => {
+      .subscribe({
+        error: cb,
+        next(oot) {
           outValue = oot;
           cb();
-        },
-        cb
-      );
+        }
+      });
   });
 
   it('outValue should be [0, 1, 2, 3, 4]', () => {
@@ -61,9 +61,8 @@ describe('operators/debounceRandom', function () {
   for (const [name, [lower, upper], errConstructor, errMsg] of errorTests) {
     it(`Should throw if ${name}`, cb => {
       of(0).pipe(debounceRandom(lower, upper))
-        .subscribe(
-          () => cb(new Error('Did not throw')),
-          (e: Error) => {
+        .subscribe({
+          error(e: Error) {
             try {
               expect(e).to.be.instanceOf(errConstructor);
               expect(e.message).to.equal(errMsg);
@@ -71,8 +70,11 @@ describe('operators/debounceRandom', function () {
             } catch (assertionError) {
               cb(assertionError);
             }
+          },
+          next() {
+            cb(new Error('Did not throw'));
           }
-        );
+        });
     });
   }
 });

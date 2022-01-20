@@ -7,10 +7,12 @@ import {map} from 'rxjs/operators';
  * @param arrayFn Array.prototype fn to use
  * @param thisArg User provided thisArg
  */
-export function mkArrayFilterOperator<I, O, K extends keyof I[]>(
-  userFn: (...args: any[]) => any,
-  arrayFn: K,
+export function mkArrayFilterOperator<I, O>(
+  userFn: (item: I, idx: number, array: I[]) => any,
+  arrayFn: 'map' | 'filter',
   thisArg?: any
 ): OperatorFunction<I[], O[]> {
-  return map((arr: I[]): O[] => Array.prototype[arrayFn].call(arr, userFn, thisArg));
+  const protoFn = Array.prototype[arrayFn];
+
+  return map((arr: I[]): O[] => protoFn.call(arr, userFn, thisArg));
 }

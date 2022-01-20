@@ -2,8 +2,8 @@ import {expect} from 'chai';
 import {noop} from 'lodash';
 import type {Observable} from 'rxjs';
 import {lastValueFrom, of, timer} from 'rxjs';
-import {finalize, map, skip, take, tap} from 'rxjs/operators';
-import {NOOP_OBSERVER} from '../util/NOOP_OBSERVER';
+import {map, skip, take, tap} from 'rxjs/operators';
+import {finaliseObserver} from '../util/finaliseObserver';
 import type {asyncFilter} from './asyncFilter';
 import {asyncMap} from './asyncMap';
 
@@ -26,18 +26,17 @@ const _tAsyncMapFilterCommon = {
             next: () => {
               emitted = true;
             }
-          }),
-          finalize(() => {
-            if (emitted) {
-              cb(new Error('Emitted'));
-            } else if (errored) {
-              cb();
-            } else {
-              cb(new Error('Did not error'));
-            }
           })
         )
-        .subscribe(NOOP_OBSERVER);
+        .subscribe(finaliseObserver(() => {
+          if (emitted) {
+            cb(new Error('Emitted'));
+          } else if (errored) {
+            cb();
+          } else {
+            cb(new Error('Did not error'));
+          }
+        }));
     }]);
   },
   sameArray(meth: Meth): Def {
@@ -129,13 +128,13 @@ describe('creators/asyncMap', function () {
 
     it('Should apply thisArg', async () => {
       const o$ = asyncMap([1, 2, 3], inst.map, false, inst);
-      expect(await o$.toPromise()).to.deep.eq([2, 4, 6]);
+      expect(await lastValueFrom(o$)).to.deep.eq([2, 4, 6]);
     });
   });
 
   it('Should accept a promise input', async () => {
     const v$ = asyncMap([1, 2, 3], v => Promise.resolve(v * 2));
-    expect(await v$.toPromise()).to.deep.eq([2, 4, 6]);
+    expect(await lastValueFrom(v$)).to.deep.eq([2, 4, 6]);
   });
 
   it('Should observify filter method errors', () => {

@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {of} from 'rxjs';
+import {lastValueFrom, of} from 'rxjs';
 import {mkArrayFilterOperator} from './mkArrayMapOperator';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
@@ -27,13 +27,13 @@ describe('internal/mkArrayMapOperator', function () {
     const res = of([1, 2, 3])
       .pipe(mkArrayFilterOperator(inst.multiply, 'map', inst));
 
-    expect(await res.toPromise()).to.deep.eq([2, 4, 6]);
+    expect(await lastValueFrom(res)).to.deep.eq([2, 4, 6]);
   });
 
   it('Should filter correctly', async () => {
     const res = of([1, 2, 3])
       .pipe(mkArrayFilterOperator(inst.isTwo, 'filter', inst));
 
-    expect(await res.toPromise()).to.deep.eq([2]);
+    expect(await lastValueFrom(res)).to.deep.eq([2]);
   });
 });
