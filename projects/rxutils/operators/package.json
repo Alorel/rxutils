@@ -1,0 +1,8 @@
+{
+  "name": "@aloreljs/rxutils/operators",
+  "types": "./index.d.ts",
+  "main": "./index.js",
+  "sideEffects": false,
+  "module": "../_esm2015/operators/index.js",
+  "es2015": "../_esm2015/operators/index.js"
+}

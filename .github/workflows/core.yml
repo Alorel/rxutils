@@ -1,70 +1,48 @@
 name: Core
 on:
   - push
+  - pull_request
 
 jobs:
   lint:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-        node:
-          - 14.x
+    name: Lint
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-      - uses: actions/setup-node@v1
-        name: Set up node
-        with:
-          node-version: ${{ matrix.node }}
-          registry-url: https://npm.pkg.github.com/alorel
-      - name: Set up yarn
-        run: npm install -g yarn@^1.22.0
-      - name: Install deps
-        run: yarn install
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Lint
-        run: yarn run tslint
+        uses: ./.github/actions/lint
+        with:
+          node-version: 16
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
   test:
     runs-on: ${{ matrix.os }}
+    name: Test ${{ matrix.os }}/Node ${{ matrix.node }}
     strategy:
       fail-fast: false
       matrix:
         os:
+          #          - windows-latest
+          #          - macos-latest
           - ubuntu-latest
         node:
-          - 14.x
+          - 16
+          - 14
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 1
-      - uses: actions/setup-node@v1
-        name: Set up node
+      - name: Test
+        uses: ./.github/actions/test
         with:
           node-version: ${{ matrix.node }}
-          registry-url: https://npm.pkg.github.com/alorel
-      - name: Set up yarn
-        run: npm install -g yarn@^1.22
-      - name: Install deps
-        run: yarn install
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build
-        run: yarn run build
-      - name: Test
-        run: yarn test --forbid-only --forbid-pending
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload coverage
-        if: ${{ matrix.os != 'windows-latest' }}
+        if: ${{ runner.os != 'windows-latest' }}
         continue-on-error: true
         uses: coverallsapp/github-action@v1.1.2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          flag-name: node-${{ matrix.node }}-on-${{ matrix.os }}
+          flag-name: node-${{ inputs.node-version }}-on-${{ runner.os }}-${{ github.event_name }}
           parallel: true
   posttest:
     runs-on: ubuntu-latest
@@ -77,41 +55,29 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true
   release:
-    runs-on: ${{ matrix.os }}
-    if: ${{ github.ref == 'refs/heads/master' }}
+    name: Release
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     needs:
       - lint
       - test
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-        node:
-          - 14.x
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          fetch-depth: 100
-      - uses: actions/setup-node@v1
-        name: Set up node
+          fetch-depth: 1000
+      - name: Init NPM
+        uses: ./.github/actions/init-npm
+        with:
+          node-version: 16
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v2
+        name: Reconfig Node
         with:
           node-version: ${{ matrix.node }}
-          registry-url: https://npm.pkg.github.com/alorel
-      - name: Set up yarn
-        run: npm install -g yarn@^1.22
-      - name: Install deps
-        run: yarn install
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build
-        run: yarn run build
-      - name: Copy files
-        run: node_modules/.bin/alo copy-files
-      - name: Typedoc
-        run: yarn run typedoc:md
+          registry-url: https://registry.npmjs.org
       - name: Release
-        run: node_modules/.bin/semantic-release
+        run: npm run release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

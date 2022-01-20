@@ -1,17 +1,11 @@
-import * as fs from 'fs-extra';
+import {promises as fs} from 'fs';
 import {LazyGetter} from 'lazy-get-decorator';
 import {basename, dirname, join} from 'path';
 import * as pluralise from 'pluralize';
 import {sync as rimraf} from 'rimraf';
-import {
-  Application,
-  DeclarationReflection,
-  ProjectReflection,
-  ReflectionKind,
-  SignatureReflection,
-  TypeParameterReflection
-} from 'typedoc';
-import {
+import type {DeclarationReflection, ProjectReflection, SignatureReflection, TypeParameterReflection} from 'typedoc';
+import {Application, ReflectionKind} from 'typedoc';
+import type {
   ArrayType,
   Comment,
   IntrinsicType,
@@ -23,13 +17,13 @@ import {
   TypeParameterType,
   UnionType
 } from 'typedoc/dist/lib/models';
-import {SourceReference} from 'typedoc/dist/lib/models/sources/file';
+import type {SourceReference} from 'typedoc/dist/lib/models/sources/file';
 import find = require('lodash/find');
 import get = require('lodash/get');
 import sortBy = require('lodash/sortBy');
 import upperFirst = require('lodash/upperFirst');
 
-//tslint:disable:no-var-requires max-file-line-count
+/* eslint-disable */
 
 const GIT_REPO = 'Alorel/rxutils';
 const REVISION = require('./package.json').version;
@@ -160,14 +154,15 @@ const project: ProjectReflection = (() => {
   const app = new Application({
     mode: 'file',
     logger: 'none',
-    target: 'ES6',
+    target: 'es2017',
     module: 'CommonJS',
+    ignoreCompilerErrors: true,
     name: 'RxUtils',
     excludeNotExported: true,
     excludeExternals: true
   });
 
-  return <ProjectReflection>app.convert(app.expandInputFiles(['src']));
+  return <ProjectReflection>app.convert(app.expandInputFiles(['projects/rxutils']));
 })();
 
 function tryGetCommentKind(c?: Comment | null): string | void {
@@ -176,7 +171,7 @@ function tryGetCommentKind(c?: Comment | null): string | void {
 
 function sourceRefLink({fileName, line, character, url}: SourceReference, referenceLineNumbers = true): string {
   if (!url) {
-    url = `https://github.com/${GIT_REPO}/blob/${REVISION}/src/${fileName}#${line}`;
+    url = `https://github.com/${GIT_REPO}/blob/${REVISION}/projects/rxutils/${fileName}#${line}`;
   }
   let linkTxt = fileName;
   if (referenceLineNumbers) {
@@ -241,7 +236,7 @@ class ChildProcessor {
     return this.lines.join('\n');
   }
 
-  public write(): Promise<void> {
+  public async write(): Promise<void> {
     let filepath: string;
     if (CUSTOM_WRITE_PATHS[this.child.name]) {
       filepath = join(WRITE_PATH, CUSTOM_WRITE_PATHS[this.child.name]);
@@ -249,9 +244,10 @@ class ChildProcessor {
       filepath = join(WRITE_PATH, this.child.sources![0].fileName).replace(/\.ts$/, '.md');
     }
     const dirpath = dirname(filepath);
-    fs.mkdirpSync(dirpath);
+    await fs.mkdir(dirpath, {recursive: true});
 
-    return fs.writeFile(filepath, this.toString());
+    await fs.writeFile(filepath, this.toString());
+    return;
   }
 
   private getDefLink(source?: SourceReference): string {
@@ -271,7 +267,7 @@ class ChildProcessor {
     for (let i = 0; i < this.child.signatures!.length; i++) {
       const sig = this.child.signatures![i];
 
-      let header = `## ${stringifySignature(sig)}`;
+      const header = `## ${stringifySignature(sig)}`;
       let comment = processComment(sig.comment);
 
       if (sig.parameters && sig.parameters.length) {
@@ -328,7 +324,7 @@ class ChildProcessor {
   }
 
   private processTypeAlias(): void {
-    let signature = this.child.name + typeParamsToString(this.child.typeParameters);
+    const signature = this.child.name + typeParamsToString(this.child.typeParameters);
     this.lines.push(
       `# \`${this.category}\` ${signature}`,
       ''
@@ -373,31 +369,31 @@ function processExample(comment: Comment): string | null {
 }
 
 outer:
-  for (const child of project.children!) {
-    if (!child.flags.isExported || child.flags.isExternal || (child.comment && child.comment.hasTag('internal'))) {
-      continue;
-    } else if (child.signatures && child.signatures.length) {
+for (const child of project.children!) {
+  if (!child.flags.isExported || child.flags.isExternal || (child.comment && child.comment.hasTag('internal'))) {
+    continue;
+  } else if (child.signatures && child.signatures.length) {
 
-      for (const s of child.signatures) {
-        if (s.comment && s.comment.hasTag('internal')) {
-          continue outer;
-        }
+    for (const s of child.signatures) {
+      if (s.comment && s.comment.hasTag('internal')) {
+        continue outer;
       }
-    }
-
-    const proc = new ChildProcessor(child);
-    if (proc.process()) {
-      proc
-        .write()
-        .catch((e: any) => {
-          console.error(e);
-          process.exit(1);
-        });
     }
   }
 
-(() => {
-  let contents: string[] = [
+  const proc = new ChildProcessor(child);
+  if (proc.process()) {
+    proc
+      .write()
+      .catch((e: any) => {
+        console.error(e);
+        process.exit(1);
+      });
+  }
+}
+
+(async () => {
+  const contents: string[] = [
     `# rxutils ${REVISION} documentation`
   ];
 
@@ -420,5 +416,10 @@ outer:
     }
   }
 
-  fs.writeFileSync(join(WRITE_PATH, 'README.md'), contents.join('\n') + '\n');
-})();
+  await fs.mkdir(WRITE_PATH);
+
+  return fs.writeFile(join(WRITE_PATH, 'README.md'), `${contents.join('\n')}\n`);
+})().catch(e => {
+  console.error(e);
+  process.exit(1);
+});

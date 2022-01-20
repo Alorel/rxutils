@@ -3,8 +3,6 @@
 Utility functions for rxjs
 
 ![Core](https://github.com/Alorel/rxutils/workflows/Core/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/github/Alorel/rxutils/badge.svg?branch=1.6.0)](https://coveralls.io/github/Alorel/rxutils?branch=1.6.0)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Alorel/rxutils.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Alorel/rxutils/context:javascript)
 
 -----
 
