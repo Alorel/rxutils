@@ -1,16 +1,7 @@
-import {interval, Observable, SchedulerAction, SchedulerLike, Subscriber, throwError} from 'rxjs';
+import type {SchedulerAction, SchedulerLike, Subscription} from 'rxjs';
+import {interval, Observable, scheduled, throwError} from 'rxjs';
 import {DEFAULT_SCHEDULER} from '../internal/DEFAULT_SCHEDULER';
 import {rng, validateRng} from '../internal/rng';
-
-interface State {
-  count: number;
-
-  lower: number;
-
-  subscriber: Subscriber<number>;
-
-  upper: number;
-}
 
 /**
  * An interval that emits with random delays
@@ -35,7 +26,7 @@ export function intervalRandom(
   try {
     validateRng(lower, upper);
   } catch (e) {
-    return throwError(e, scheduler);
+    return scheduled(throwError(() => e), scheduler);
   }
 
   if (lower === upper) {
@@ -43,18 +34,15 @@ export function intervalRandom(
   }
 
   return new Observable<number>(subscriber => {
-    subscriber.add(
-      scheduler.schedule<State>(<any>dispatcher, rng(lower, upper), {
-        count: 0,
-        lower,
-        subscriber,
-        upper
-      })
-    );
-  });
-}
+    let sub: Subscription;
+    function dispatcher(this: SchedulerAction<number>, count?: number): void {
+      subscriber.next(count!);
+      sub = this.schedule(count! + 1, rng(lower, upper));
+    }
+    sub = scheduler.schedule(dispatcher, rng(lower, upper), 0);
 
-function dispatcher(this: SchedulerAction<State>, {subscriber, count, lower, upper}: State): void {
-  subscriber.next(count);
-  this.schedule({subscriber, count: count + 1, lower, upper}, rng(lower, upper));
+    return () => {
+      sub.unsubscribe();
+    };
+  });
 }

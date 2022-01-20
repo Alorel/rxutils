@@ -1,8 +1,8 @@
 import {expect} from 'chai';
-import {noop} from 'lodash';
 import type {Observable} from 'rxjs';
 import {of, throwError} from 'rxjs';
 import {finalize, switchMap, tap} from 'rxjs/operators';
+import {NOOP_OBSERVER} from '../util/NOOP_OBSERVER';
 import {tapComplete} from './tapComplete';
 
 describe('operators/tapComplete', () => {
@@ -36,7 +36,7 @@ describe('operators/tapComplete', () => {
           }),
           finalize(() => cb())
         )
-        .subscribe(noop, noop, noop);
+        .subscribe(NOOP_OBSERVER);
     });
 
     it('Should have 1 next', () => {
@@ -60,28 +60,28 @@ describe('operators/tapComplete', () => {
         .pipe(
           switchMap((v: string): Observable<string> => {
             if (v === '<err>') {
-              return throwError(new Error(v));
+              return throwError(() => new Error(v));
             }
 
             return of(v);
           }),
-          tap(
-            () => {
-              nexts++;
+          tap({
+            complete() {
+              completions++;
             },
-            () => {
+            error() {
               errors++;
             },
-            () => {
-              completions++;
+            next() {
+              nexts++;
             }
-          ),
+          }),
           tapComplete(() => {
             completions++;
           }),
           finalize(() => cb())
         )
-        .subscribe(noop, noop, noop);
+        .subscribe(NOOP_OBSERVER);
     });
 
     it('Should have 1 next', () => {

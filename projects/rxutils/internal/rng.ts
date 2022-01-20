@@ -3,9 +3,9 @@
  * @throws If validation fails
  */
 export function validateRng(lower: number, upper: number): void {
-  if (typeof lower !== 'number') {
+  if (typeof (lower as any) !== 'number') {
     throw new TypeError('Lower is not a number');
-  } else if (typeof upper !== 'number') {
+  } else if (typeof (upper as any) !== 'number') {
     throw new TypeError('Upper is not a number');
   } else if (lower < 0) {
     throw new Error('Lower is < 0');

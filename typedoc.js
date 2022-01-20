@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = {
   hideGenerator: true,
   mode: 'file',

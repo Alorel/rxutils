@@ -1,5 +1,4 @@
 import type {MonoTypeOperatorFunction} from 'rxjs';
-import {noop} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
 /**
@@ -22,5 +21,5 @@ import {tap} from 'rxjs/operators';
  * // Logs "complete" then "definitely complete"
  */
 export function tapComplete<IO>(tapFn: () => void): MonoTypeOperatorFunction<IO> {
-  return tap(noop, noop, tapFn);
+  return tap({complete: tapFn});
 }

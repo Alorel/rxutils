@@ -32,6 +32,6 @@ import type {Subject} from 'rxjs';
  * Completed (2)
  */
 export function nextComplete<T>(subj: Pick<Subject<T>, 'next' | 'complete'>, nextValue?: T): void {
-  subj.next(nextValue);
+  subj.next(nextValue!);
   subj.complete();
 }

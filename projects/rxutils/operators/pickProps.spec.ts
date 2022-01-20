@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {noop} from 'lodash';
 import type {Observable} from 'rxjs';
-import {of} from 'rxjs';
+import {lastValueFrom, of} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {pickProps} from './pickProps';
 
@@ -42,72 +42,63 @@ describe('operators/pickProps', () => {
   });
 
   it('Should map to {} if an empty property array is given', async () => {
-    await source$
-      .pipe(
-        pickProps([]),
-        tap(out => {
-          expect(out).to.deep.eq({});
-        })
-      )
-      .toPromise();
+    const out$ = lastValueFrom(await source$.pipe(pickProps([])));
+    expect(await out$).to.deep.eq({});
   });
 
   it('Should map to {} when the source is a non-object', async () => {
-    await of<any>(1)
-      .pipe(
-        pickProps(['foo']),
-        tap(out => {
-          expect(out).to.deep.eq({});
-        })
-      )
-      .toPromise();
+    const out = await lastValueFrom(of<any>(1).pipe(pickProps(['foo'])));
+    expect(out).to.deep.eq({});
   });
 
   it('Should have implicit typings', async () => {
-    await source$
-      .pipe(
-        pickProps(['foo', 'bar']),
-        tap(out => {
-          noop(out.foo);
-          noop(out.bar);
-        })
-      )
-      .toPromise();
+    await lastValueFrom(
+      source$
+        .pipe(
+          pickProps(['foo', 'bar']),
+          tap(out => {
+            noop(out.foo);
+            noop(out.bar);
+          })
+        )
+    );
   });
 
   it('Should work with shallow props', async () => {
-    await source$
-      .pipe(
-        pickProps(['deep', 'qux', 'notAProp']),
-        tap(out => {
-          expect(out).to.deep.eq({
-            deep: {
-              bar: 2,
-              baz: 4,
-              foo: 1,
+    await lastValueFrom(
+      source$
+        .pipe(
+          pickProps(['deep', 'qux', 'notAProp']),
+          tap(out => {
+            expect(out).to.deep.eq({
+              deep: {
+                bar: 2,
+                baz: 4,
+                foo: 1,
+                qux: 3
+              },
               qux: 3
-            },
-            qux: 3
-          });
-        })
-      )
-      .toPromise();
+            });
+          })
+        )
+    );
   });
 
   it('Should work with deep props', async () => {
-    await source$
-      .pipe(
-        pickProps(['foo', 'deep.bar', 'deep.qux', 'notAProp']),
-        tap(out => {
-          expect(out).to.deep.eq({
-            deep: {
-              bar: 2,
-              qux: 3
-            },
-            foo: 1
-          });
-        })
-      )
-      .toPromise();
+    await lastValueFrom(
+      source$
+        .pipe(
+          pickProps(['foo', 'deep.bar', 'deep.qux', 'notAProp']),
+          tap(out => {
+            expect(out).to.deep.eq({
+              deep: {
+                bar: 2,
+                qux: 3
+              },
+              foo: 1
+            });
+          })
+        )
+    );
   });
 });

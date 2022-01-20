@@ -1,4 +1,5 @@
 import {expect} from 'chai';
+import {lastValueFrom} from 'rxjs';
 import {last, take, tap, toArray} from 'rxjs/operators';
 import {DummyScheduler, DummySchedulerAction} from '../_test-util/DummyScheduler';
 import {intervalRandom} from './intervalRandom';
@@ -17,9 +18,8 @@ describe('creators/intervalRandom', function () {
   for (const [name, [lower, upper], errConstructor, errMsg] of errorTests) {
     it(`Should throw if ${name}`, cb => {
       intervalRandom(lower, upper)
-        .subscribe(
-          () => cb(new Error('Did not throw')),
-          (e: Error) => {
+        .subscribe({
+          error(e: Error) {
             try {
               expect(e).to.be.instanceOf(errConstructor);
               expect(e.message).to.equal(errMsg);
@@ -27,21 +27,24 @@ describe('creators/intervalRandom', function () {
             } catch (assertionError) {
               cb(assertionError);
             }
+          },
+          next() {
+            cb(new Error('Did not throw'));
           }
-        );
+        });
     });
   }
 
   it('Should return an array of iteration counters', async () => {
-    await intervalRandom(1, 2)
+    const o$ = intervalRandom(1, 2)
       .pipe(
         take(3),
         toArray(),
         tap(out => {
           expect(out).to.deep.eq([0, 1, 2]);
         })
-      )
-      .toPromise();
+      );
+    await lastValueFrom(o$);
   });
 
   describe('Should use specified scheduler', () => {
@@ -59,13 +62,13 @@ describe('creators/intervalRandom', function () {
             take(3),
             last()
           )
-          .subscribe(
-            () => {
+          .subscribe({
+            error: cb,
+            next() {
               delays = DummySchedulerAction.delays.slice(0);
               cb();
-            },
-            cb
-          );
+            }
+          });
       });
 
       it('Delays should be [1, 1, 1]', () => {
@@ -82,14 +85,14 @@ describe('creators/intervalRandom', function () {
             take(3),
             last()
           )
-          .subscribe(
-            () => {
+          .subscribe({
+            error: cb,
+            next() {
               delays = DummySchedulerAction.delays.slice(0);
               count = DummySchedulerAction.scheduleCount;
               cb();
-            },
-            cb
-          );
+            }
+          });
       });
 
       it('Count should be 3', () => {

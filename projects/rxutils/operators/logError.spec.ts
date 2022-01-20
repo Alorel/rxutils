@@ -1,9 +1,10 @@
 import {expect} from 'chai';
 import {noop, random} from 'lodash';
 import {throwError} from 'rxjs';
-import {finalize} from 'rxjs/operators';
 import * as sinon from 'sinon';
 import {v4 as uuid} from 'uuid';
+import {finaliseObserver} from '../util/finaliseObserver';
+import {NOOP_OBSERVER} from '../util/NOOP_OBSERVER';
 import {logError, setDefaultLogger, wasLogged} from './logError';
 import {tapError} from './tapError';
 
@@ -24,9 +25,9 @@ describe('operators/logError', () => {
     });
 
     before('Run', cb => {
-      throwError(new Error('test-error'))
-        .pipe(logError(), logError(), finalize(cb))
-        .subscribe(noop, noop);
+      throwError(() => new Error('test-error'))
+        .pipe(logError(), logError())
+        .subscribe(finaliseObserver(cb));
     });
 
     it('Should have been called once', () => {
@@ -62,9 +63,9 @@ describe('operators/logError', () => {
 
     describe('No thisArg', () => {
       before('Run', cb => {
-        throwError(new Error('foo-error'))
-          .pipe(logError(undefined, logger.log), finalize(cb))
-          .subscribe(noop, noop);
+        throwError(() => new Error('foo-error'))
+          .pipe(logError(undefined, logger.log))
+          .subscribe(finaliseObserver(cb));
       });
 
       it('Should have one call arg', () => {
@@ -78,9 +79,9 @@ describe('operators/logError', () => {
 
     describe('With thisArg', () => {
       before('Run', cb => {
-        throwError(new Error('foo-error'))
-          .pipe(logError(undefined, logger.log, logger), finalize(cb))
-          .subscribe(noop, noop);
+        throwError(() => new Error('foo-error'))
+          .pipe(logError(undefined, logger.log, logger))
+          .subscribe(finaliseObserver(cb));
       });
 
       it('Should have one call arg', () => {
@@ -114,9 +115,9 @@ describe('operators/logError', () => {
     });
 
     before('Run', cb => {
-      throwError(new Error('test-error'))
-        .pipe(logError(id), logError(), finalize(cb))
-        .subscribe(noop, noop);
+      throwError(() => new Error('test-error'))
+        .pipe(logError(id), logError())
+        .subscribe(finaliseObserver(cb));
     });
 
     it('Should have been called once', () => {
@@ -152,9 +153,9 @@ describe('setDefaultLogger', () => {
   });
 
   before('Run', cb => {
-    throwError(new Error('test-err'))
-      .pipe(logError(), finalize(cb))
-      .subscribe(noop, noop);
+    throwError(() => new Error('test-err'))
+      .pipe(logError())
+      .subscribe(finaliseObserver(cb));
   });
 
   it('Should have been called once', () => {
@@ -170,26 +171,24 @@ describe('wasLogged', () => {
   let err1: Error, err2: Error;
 
   before('Run unlogged', cb => {
-    throwError(new Error())
+    throwError(() => new Error())
       .pipe(
         tapError(e => {
           err1 = e;
-        }),
-        finalize(cb)
+        })
       )
-      .subscribe(noop, noop);
+      .subscribe(finaliseObserver(cb));
   });
 
   before('Run logged', cb => {
-    throwError(new Error())
+    throwError(() => new Error())
       .pipe(
         tapError(e => {
           err2 = e;
         }),
-        logError(undefined, noop),
-        finalize(cb)
+        logError(undefined, noop)
       )
-      .subscribe(noop, noop);
+      .subscribe(finaliseObserver(cb));
   });
 
   it('err1 should be unlogged', () => {
@@ -203,7 +202,7 @@ describe('wasLogged', () => {
   // eslint-disable-next-line @typescript-eslint/no-magic-numbers
   for (const t of [null, undefined, random(1, 10), 0]) {
     it(`${String(t)} should always return false`, cb => {
-      throwError(t)
+      throwError(() => t)
         .pipe(
           logError(undefined, noop),
           tapError(err => {
@@ -215,7 +214,7 @@ describe('wasLogged', () => {
             }
           })
         )
-        .subscribe(noop, noop);
+        .subscribe(NOOP_OBSERVER);
     });
   }
 });

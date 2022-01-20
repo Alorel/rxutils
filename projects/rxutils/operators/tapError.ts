@@ -1,5 +1,4 @@
 import type {MonoTypeOperatorFunction} from 'rxjs';
-import {noop} from 'rxjs';
 import {tap} from 'rxjs/operators';
 
 /**
@@ -22,5 +21,5 @@ import {tap} from 'rxjs/operators';
  * // Logs 'error', then the error object
  */
 export function tapError<IO, E = Error>(tapFn: (e: E) => void): MonoTypeOperatorFunction<IO> {
-  return tap(noop, tapFn);
+  return tap({error: tapFn});
 }

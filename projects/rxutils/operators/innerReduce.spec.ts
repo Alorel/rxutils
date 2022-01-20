@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import {of} from 'rxjs';
+import {lastValueFrom, of} from 'rxjs';
 import * as operators from '../../rxutils/operators';
 
 describe('operators/innerReduce & innerReduceRight', () => {
@@ -21,17 +21,15 @@ describe('operators/innerReduce & innerReduceRight', () => {
     describe(operatorName, () => {
       const operator = operators[operatorName];
 
-      it(`No initial value should reduce to ${expNoinit}`, () => of(src).pipe(operator(reducer))
-        .toPromise()
-        .then(v => {
-          expect(v).to.eq(expNoinit);
-        }));
+      it(`No initial value should reduce to ${expNoinit}`, async () => {
+        const v = await lastValueFrom(of(src).pipe(operator(reducer)));
+        expect(v).to.eq(expNoinit);
+      });
 
-      it(`Initial value '' should reduce to ${expInit}`, () => of(src).pipe(operator(reducer, () => ''))
-        .toPromise()
-        .then(v => {
-          expect(v).to.eq(expInit);
-        }));
+      it(`Initial value '' should reduce to ${expInit}`, async () => {
+        const v = await lastValueFrom(of(src).pipe(operator(reducer, () => '')));
+        expect(v).to.eq(expInit);
+      });
     });
   }
 });

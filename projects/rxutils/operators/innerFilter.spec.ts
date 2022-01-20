@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import {noop} from 'lodash';
 import type {Observable} from 'rxjs';
-import {of} from 'rxjs';
+import {lastValueFrom, of} from 'rxjs';
 import {innerFilter} from './innerFilter';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
@@ -10,7 +10,7 @@ describe('operators/innerFilter', function () {
   // BEGIN typechecks
   const _tcVal1: Observable<string[]> = of(['a', 'b']).pipe(
     innerFilter((val, idx, arr) => {
-      noop(val.substr(0), idx.toExponential(), arr[0].substr(0));
+      noop(val.substring(0), idx.toExponential(), arr[0].substring(0));
 
       return true;
     })
@@ -24,11 +24,7 @@ describe('operators/innerFilter', function () {
   // END typechecks
 
   it('Should output [1, 4]', async () => {
-    const result = await of([1, 0, 4, -1])
-      .pipe(
-        innerFilter(v => v > 0)
-      )
-      .toPromise();
+    const result = await lastValueFrom(of([1, 0, 4, -1]).pipe(innerFilter(v => v > 0)));
 
     expect(result).to.deep.eq([1, 4]);
   });
@@ -43,9 +39,7 @@ describe('operators/innerFilter', function () {
     }
 
     const inst = new Filterer();
-    const result = of([1, 2, 3])
-      .pipe(innerFilter(inst.doFilter, inst))
-      .toPromise();
+    const result = lastValueFrom(of([1, 2, 3]).pipe(innerFilter(inst.doFilter, inst)));
 
     expect(await result).to.deep.eq([1, 3]);
   });

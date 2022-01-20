@@ -62,7 +62,7 @@ describe('util/finaliseObserver', function () {
       public readonly num = 1;
 
       public done(): void {
-        result = (typeof this.num === 'number' ? this.num : 0) + 1;
+        result = (typeof (this.num as any) === 'number' ? this.num : 0) + 1;
         onComplete.next();
       }
     }

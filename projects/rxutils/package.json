@@ -23,5 +23,11 @@
       "default": "./_esm2015/operators/index.js"
     },
     "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "lodash": "^4.0.0"
+  },
+  "peerDependencies": {
+    "rxjs": "^7.0.0"
   }
 }

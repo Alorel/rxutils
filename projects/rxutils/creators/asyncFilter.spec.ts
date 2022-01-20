@@ -1,16 +1,17 @@
 import {expect} from 'chai';
-import {Observable, of, timer} from 'rxjs';
+import type {Observable} from 'rxjs';
+import {of, timer} from 'rxjs';
 import {mapTo, startWith} from 'rxjs/operators';
 import {asyncFilter} from './asyncFilter';
 import {_tAsyncMapFilterCommon} from './asyncMap.spec';
 
-describe('creators/asyncFilter', function() {
+describe('creators/asyncFilter', function () {
   it.apply(it, <any>_tAsyncMapFilterCommon.inpNotArray(asyncFilter));
   it.apply(it, <any>_tAsyncMapFilterCommon.sameArray(asyncFilter));
 
   describe('emitIntermediate', () => {
     function filterer(inp: any): Observable<boolean> {
-      return timer(25).pipe(
+      return timer(25).pipe( // eslint-disable-line @typescript-eslint/no-magic-numbers
         mapTo(typeof inp === 'number'),
         startWith(true)
       );
@@ -35,16 +36,14 @@ describe('creators/asyncFilter', function() {
           out = [];
 
           asyncFilter<any, any>(inpArray, filterer, emit)
-            .subscribe(
-              v => {
+            .subscribe({
+              complete: cb,
+              error: cb,
+              next(v) {
                 emissions++;
                 out = v.slice(0);
-              },
-              cb,
-              () => {
-                cb();
               }
-            );
+            });
         });
 
         it(`Should emit ${expEmissionsString} time(s)`, () => {

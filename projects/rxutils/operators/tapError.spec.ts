@@ -1,7 +1,7 @@
 import {expect} from 'chai';
-import {noop} from 'lodash';
 import {of, throwError} from 'rxjs';
 import {finalize, switchMap, tap} from 'rxjs/operators';
+import {NOOP_OBSERVER} from '../util/NOOP_OBSERVER';
 import {tapError} from './tapError';
 
 describe('operators/tapError', () => {
@@ -15,29 +15,29 @@ describe('operators/tapError', () => {
       .pipe(
         switchMap((v: any) => {
           if (v === 'err') {
-            return throwError(new Error(v));
+            return throwError(() => new Error(v));
           }
 
           return of(v);
         }),
-        tap(
-          () => {
-            nexts++;
+        tap({
+          complete() {
+            completions++;
           },
-          () => {
+          error() {
             errors++;
           },
-          () => {
-            completions++;
+          next() {
+            nexts++;
           }
-        ),
+        }),
         tapError(e => {
           tappedError = <any>e;
           errors++;
         }),
         finalize(() => cb())
       )
-      .subscribe(noop, noop, noop);
+      .subscribe(NOOP_OBSERVER);
   });
 
   it('Should have 1 next', () => {

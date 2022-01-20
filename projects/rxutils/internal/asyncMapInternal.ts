@@ -9,8 +9,8 @@ export function asyncMapInternal<I, O>(
   thisArg: any,
   validatorFnName: string
 ): Observable<O[]> {
-  if (!Array.isArray(<any>input)) {
-    return throwError(new Error(`${validatorFnName} input not an array`));
+  if (!Array.isArray(input)) {
+    return throwError(() => new Error(`${validatorFnName} input not an array`));
   } else if (!input.length) {
     return of<any[]>(input);
   }
