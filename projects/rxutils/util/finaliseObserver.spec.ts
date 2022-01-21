@@ -9,17 +9,14 @@ describe('util/finaliseObserver', function () {
     expect(finaliseObserver(rxNoop).next).to.equal(rxNoop);
   });
 
-  for (const m of ['complete', 'error']) {
-    it(`Argument passed should get assigned to ${m}`, () => {
-      function foo() {
-        // noop
-      }
+  it('Argument passed should get assigned to complete', () => {
+    function foo() {
+      // noop
+    }
 
-      const o = finaliseObserver(foo);
-      expect(o.complete).to.eq(foo, 'complete');
-      expect(o.error).to.eq(foo, 'error');
-    });
-  }
+    const o = finaliseObserver(foo);
+    expect(o.complete).to.eq(foo, 'complete');
+  });
 
   it('Shouldn\'t emit on next without a complete', () => {
     const src$ = new AsyncSubject<any>();

@@ -25,7 +25,9 @@ export function finaliseObserver<T>(callback: () => void, thisArg?: any): Observ
 
   return {
     complete: fn,
-    error: fn,
+    error() {
+      fn();
+    },
     next: noop
   };
 }
