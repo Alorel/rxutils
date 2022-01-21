@@ -1,8 +1,7 @@
-import {promises as fs} from 'fs';
+import * as fsSync from 'fs';
 import {LazyGetter} from 'lazy-get-decorator';
 import {basename, dirname, join} from 'path';
 import * as pluralise from 'pluralize';
-import {sync as rimraf} from 'rimraf';
 import type {DeclarationReflection, ProjectReflection, SignatureReflection, TypeParameterReflection} from 'typedoc';
 import {Application, ReflectionKind} from 'typedoc';
 import type {
@@ -46,7 +45,12 @@ const CUSTOM_WRITE_PATHS = {
   wasLogged: 'misc/wasLogged.md'
 };
 
-rimraf(WRITE_PATH);
+const fs = fsSync.promises;
+
+if (fsSync.existsSync(WRITE_PATH)) {
+  fsSync.rmdirSync(WRITE_PATH, {recursive: true});
+}
+fsSync.mkdirSync(WRITE_PATH);
 
 function processComment(c?: Comment | null): string {
   if (!c) {
@@ -157,6 +161,7 @@ const project: ProjectReflection = (() => {
     target: 'es2017',
     module: 'CommonJS',
     ignoreCompilerErrors: true,
+    includeDeclarations: true,
     name: 'RxUtils',
     excludeNotExported: true,
     excludeExternals: true
@@ -241,10 +246,16 @@ class ChildProcessor {
     if (CUSTOM_WRITE_PATHS[this.child.name]) {
       filepath = join(WRITE_PATH, CUSTOM_WRITE_PATHS[this.child.name]);
     } else {
-      filepath = join(WRITE_PATH, this.child.sources![0].fileName).replace(/\.ts$/, '.md');
+      filepath = join(WRITE_PATH, this.child.sources![0].fileName).replace(/(\.d)?\.ts$/, '.md');
     }
     const dirpath = dirname(filepath);
-    await fs.mkdir(dirpath, {recursive: true});
+    try {
+      await fs.mkdir(dirpath, {recursive: true});
+    } catch (e) {
+      if (e.code !== 'EEXIST') {
+        throw e;
+      }
+    }
 
     await fs.writeFile(filepath, this.toString());
     return;
@@ -368,31 +379,26 @@ function processExample(comment: Comment): string | null {
   return null;
 }
 
-outer:
-for (const child of project.children!) {
-  if (!child.flags.isExported || child.flags.isExternal || (child.comment && child.comment.hasTag('internal'))) {
-    continue;
-  } else if (child.signatures && child.signatures.length) {
+(async function mkdokExec() {
+  outer:
+    for (const child of project.children!) {
+      if (!child.flags.isExported || child.flags.isExternal || (child.comment && child.comment.hasTag('internal'))) {
+        continue;
+      } else if (child.signatures && child.signatures.length) {
 
-    for (const s of child.signatures) {
-      if (s.comment && s.comment.hasTag('internal')) {
-        continue outer;
+        for (const s of child.signatures) {
+          if (s.comment && s.comment.hasTag('internal')) {
+            continue outer;
+          }
+        }
+      }
+
+      const proc = new ChildProcessor(child);
+      if (proc.process()) {
+        await proc.write();
       }
     }
-  }
 
-  const proc = new ChildProcessor(child);
-  if (proc.process()) {
-    proc
-      .write()
-      .catch((e: any) => {
-        console.error(e);
-        process.exit(1);
-      });
-  }
-}
-
-(async () => {
   const contents: string[] = [
     `# rxutils ${REVISION} documentation`
   ];
@@ -409,16 +415,14 @@ for (const child of project.children!) {
       if (CUSTOM_WRITE_PATHS[cp.child.name]) {
         link = CUSTOM_WRITE_PATHS[cp.child.name];
       } else {
-        link = cp.child.sources![0].fileName.replace(/\.ts$/, '.md');
+        link = cp.child.sources![0].fileName.replace(/(\.d)?\.ts$/, '.md');
       }
 
       contents.push(`- [${cp.child.name}](${link})`);
     }
   }
 
-  await fs.mkdir(WRITE_PATH);
-
-  return fs.writeFile(join(WRITE_PATH, 'README.md'), `${contents.join('\n')}\n`);
+  await fs.writeFile(join(WRITE_PATH, 'README.md'), `${contents.join('\n')}\n`);
 })().catch(e => {
   console.error(e);
   process.exit(1);
