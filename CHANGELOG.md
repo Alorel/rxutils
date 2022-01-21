@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/Alorel/rxutils/compare/2.0.0...2.0.1) (2022-01-21)
+
+
+### Bug Fixes
+
+* **docs:** Fix install command & remove lodash section ([8e90b03](https://github.com/Alorel/rxutils/commit/8e90b03a1b7edf6d6afd709dcb72e380e4fed211))
+
 # [2.0.0](https://github.com/Alorel/rxutils/compare/1.6.0...2.0.0) (2022-01-21)
 
 

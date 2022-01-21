@@ -32,4 +32,4 @@ of([1, 2, 3, 4, 5])
   .subscribe(); // outputs [3, 4, 5]
 ```
 
-*Defined in [creators/asyncFilter.ts:32:27](https://github.com/Alorel/rxutils/blob/0ae56ba/projects/rxutils/creators/asyncFilter.ts#L32).*
+*Defined in [creators/asyncFilter.ts:32:27](https://github.com/Alorel/rxutils/blob/8e90b03/projects/rxutils/creators/asyncFilter.ts#L32).*
