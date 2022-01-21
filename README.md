@@ -1,11 +1,10 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+**Table of Contents** 
 
 - [Rx Utils](#rx-utils)
 - [Installation](#installation)
 - [Polyfills](#polyfills)
-- [Lodash](#lodash)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -37,16 +36,9 @@ Docs and examples for the latest version are available [here](http://bit.ly/rxut
 
 # Installation
 ```
-npm install rxjs@^6.0.0 @aloreljs/rxutils;
+npm install rxjs@^7.0.0 @aloreljs/rxutils;
 ```
 
 # Polyfills
 
 Apart from your standard ES6 polyfills, you must ensure `Symbol`s are polyfilled.
-
-# Lodash
-
-This library depends on both `lodash` and `lodash-es`. Lodash is used in the package's
-commonjs & UMD builds while lodash-es is used for ESM builds. The package's main fields
-should use the correct build automatically.
-
