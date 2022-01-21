@@ -45,4 +45,4 @@ throwError('foo')
   .subscribe(noop, noop);
 ```
 
-*Defined in [operators/logError.ts:44:25](https://github.com/Alorel/rxutils/blob/3fadbc6/src/operators/logError.ts#L44).*
+*Defined in [operators/logError.ts:43:25](https://github.com/Alorel/rxutils/blob/0ae56ba/projects/rxutils/operators/logError.ts#L43).*

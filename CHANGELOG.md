@@ -1,3 +1,24 @@
+# [2.0.0](https://github.com/Alorel/rxutils/compare/1.6.0...2.0.0) (2022-01-21)
+
+
+### Bug Fixes
+
+* **finaliseObserver:** Don't pass error to callback anymore ([0ae56ba](https://github.com/Alorel/rxutils/commit/0ae56bab85d16e8a58353603cc011fdae649edd4))
+
+
+### Maintenance
+
+* Move to rxjs 7 ([6eee417](https://github.com/Alorel/rxutils/commit/6eee417cb956e1a7b94250bc8737e8902431f6be))
+* Rm InteropObservable from ObservifyInput ([a2a25f0](https://github.com/Alorel/rxutils/commit/a2a25f0926dac73e53fcfe0fd255362d999ae1e0))
+* Update build system ([324e5b9](https://github.com/Alorel/rxutils/commit/324e5b965d6d6a2e12dc1fd9fb4d7c401c62e42d))
+
+
+### BREAKING CHANGES
+
+* rxjs 6 no longer supported
+* InteropObservable is no longer a valid input for observify()
+* ES5 and UMD bundles no longer emitted
+
 # [1.6.0](https://github.com/Alorel/rxutils/compare/1.5.3...1.6.0) (2021-01-18)
 
 

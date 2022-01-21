@@ -27,4 +27,4 @@ throwError(new Error('foo'))
 // Logs 'error', then the error object
 ```
 
-*Defined in [operators/tapError.ts:23:24](https://github.com/Alorel/rxutils/blob/3fadbc6/src/operators/tapError.ts#L23).*
+*Defined in [operators/tapError.ts:23:24](https://github.com/Alorel/rxutils/blob/0ae56ba/projects/rxutils/operators/tapError.ts#L23).*

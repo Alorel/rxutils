@@ -1,3 +1,14 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Rx Utils](#rx-utils)
+- [Installation](#installation)
+- [Polyfills](#polyfills)
+- [Lodash](#lodash)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Rx Utils
 
 Utility functions for rxjs
@@ -21,7 +32,7 @@ of([1, 2, 3])
   .subscribe();
 ```
 
-Full API docs and examples for version 1.6.0 are available [here](https://github.com/Alorel/rxutils/tree/1.6.0/docs).
+Full API docs and examples for version 2.0.0 are available [here](https://github.com/Alorel/rxutils/tree/2.0.0/docs).
 Docs and examples for the latest version are available [here](http://bit.ly/rxutils-master-docs).
 
 # Installation
