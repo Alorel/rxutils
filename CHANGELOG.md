@@ -1,3 +1,15 @@
+## [2.0.2](https://github.com/Alorel/rxutils/compare/2.0.1...2.0.2) (2022-01-21)
+
+
+### Bug Fixes
+
+* Fix ./types not being packaged ([425f1cf](https://github.com/Alorel/rxutils/commit/425f1cfdae1ea6c8040fdd1f2731c2cea6bb519f))
+
+
+### Maintenance
+
+* Update deps ([f26df06](https://github.com/Alorel/rxutils/commit/f26df068b5f919f1c29113e1772843eb9899c885))
+
 ## [2.0.1](https://github.com/Alorel/rxutils/compare/2.0.0...2.0.1) (2022-01-21)
 
 

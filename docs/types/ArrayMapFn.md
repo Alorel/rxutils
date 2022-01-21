@@ -2,4 +2,4 @@
 
 Callback for Array.prototype.map or Array.prototype.filter
 
-*Defined in [types/ArrayMapFn.ts:5:22](https://github.com/Alorel/rxutils/blob/8e90b03/projects/rxutils/types/ArrayMapFn.ts#L5).*
+*Defined in [types/ArrayMapFn.d.ts:5:30](https://github.com/Alorel/rxutils/blob/425f1cf/projects/rxutils/types/ArrayMapFn.d.ts#L5).*

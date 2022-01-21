@@ -2,4 +2,4 @@
 
 Callback for Array.prototype.reduce
 
-*Defined in [types/ArrayReducer.ts:5:24](https://github.com/Alorel/rxutils/blob/8e90b03/projects/rxutils/types/ArrayReducer.ts#L5).*
+*Defined in [types/ArrayReducer.d.ts:5:32](https://github.com/Alorel/rxutils/blob/425f1cf/projects/rxutils/types/ArrayReducer.d.ts#L5).*

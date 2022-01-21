@@ -2,4 +2,4 @@
 
 Input for {@link observify}
 
-*Defined in [types/ObservifyInput.ts:8:26](https://github.com/Alorel/rxutils/blob/8e90b03/projects/rxutils/types/ObservifyInput.ts#L8).*
+*Defined in [types/ObservifyInput.d.ts:7:34](https://github.com/Alorel/rxutils/blob/425f1cf/projects/rxutils/types/ObservifyInput.d.ts#L7).*

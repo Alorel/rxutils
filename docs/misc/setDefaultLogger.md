@@ -24,4 +24,4 @@ console.log(initialLogger === console.error); // true
 console.log(logger2 === myLogger); // true
 ```
 
-*Defined in [operators/logError.ts:63:32](https://github.com/Alorel/rxutils/blob/8e90b03/projects/rxutils/operators/logError.ts#L63).*
+*Defined in [operators/logError.ts:63:32](https://github.com/Alorel/rxutils/blob/425f1cf/projects/rxutils/operators/logError.ts#L63).*
