@@ -4,6 +4,7 @@ export {countEmissions} from './countEmissions';
 export {filterUntilPasses} from './filterUntilPasses';
 export {startWithIfAsynchronous} from './startWithIfAsynchronous';
 export {takeTruthy} from './takeTruthy';
+export {innerFind} from './innerFind';
 export {tapIfEmpty} from './tapIfEmpty';
 export {startWithFactory} from './startWithFactory';
 export {takeFalsy} from './takeFalsy';
