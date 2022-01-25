@@ -2,6 +2,7 @@ export {distinctUntilDeepChanged} from './distinctUntilDeepChanged';
 export {innerMap} from './innerMap';
 export {countEmissions} from './countEmissions';
 export {filterUntilPasses} from './filterUntilPasses';
+export {startWithIfAsynchronous} from './startWithIfAsynchronous';
 export {takeTruthy} from './takeTruthy';
 export {startWithFactory} from './startWithFactory';
 export {takeFalsy} from './takeFalsy';
