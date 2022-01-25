@@ -3,6 +3,7 @@ export {innerMap} from './innerMap';
 export {countEmissions} from './countEmissions';
 export {filterUntilPasses} from './filterUntilPasses';
 export {takeTruthy} from './takeTruthy';
+export {startWithFactory} from './startWithFactory';
 export {takeFalsy} from './takeFalsy';
 export {pickProps} from './pickProps';
 export {debounceRandom} from './debounceRandom';
