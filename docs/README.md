@@ -1,4 +1,4 @@
-# rxutils 2.0.2 documentation
+# rxutils 2.1.0 documentation
 
 ## Creators
 
@@ -13,19 +13,28 @@
 
 ## Operators
 
+- [collectForTime](operators/collectForTime.md)
 - [countEmissions](operators/countEmissions.md)
 - [debounceRandom](operators/debounceRandom.md)
 - [distinctUntilDeepChanged](operators/distinctUntilDeepChanged.md)
+- [filterUntilPasses](operators/filterUntilPasses.md)
 - [innerFilter](operators/innerFilter.md)
+- [innerFind](operators/innerFind.md)
 - [innerMap](operators/innerMap.md)
 - [innerReduce](operators/innerReduce.md)
 - [innerReduceRight](operators/innerReduceRight.md)
 - [logError](operators/logError.md)
+- [mergeTap](operators/mergeTap.md)
 - [pickProps](operators/pickProps.md)
+- [startWithFactory](operators/startWithFactory.md)
+- [startWithIfAsynchronous](operators/startWithIfAsynchronous.md)
+- [switchTap](operators/switchTap.md)
 - [takeFalsy](operators/takeFalsy.md)
 - [takeTruthy](operators/takeTruthy.md)
 - [tapComplete](operators/tapComplete.md)
 - [tapError](operators/tapError.md)
+- [tapIfEmpty](operators/tapIfEmpty.md)
+- [tapLast](operators/tapLast.md)
 
 ## Type aliases
 

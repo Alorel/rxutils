@@ -20,15 +20,11 @@ import {tapError} from '@aloreljs/rxutils/operators';
 
 throwError(new Error('foo'))
   .pipe(
-    tap({
-      complete: () => console.log('complete'),
-      error: () => console.log('error'),
-      next: () => console.log('next')
-    }),
+    tap(() => console.log('next'), () => console.log('error'), () => console.log('complete')),
     tapError(e => console.error(e)
   )
   .subscribe();
 // Logs 'error', then the error object
 ```
 
-*Defined in [operators/tapError.ts:23:24](https://github.com/Alorel/rxutils/blob/425f1cf/projects/rxutils/operators/tapError.ts#L23).*
+*Defined in [operators/tapError.ts:23:24](https://github.com/Alorel/rxutils/blob/7f8a5b2/projects/rxutils/operators/tapError.ts#L23).*

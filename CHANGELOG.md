@@ -1,3 +1,22 @@
+# [2.1.0](https://github.com/Alorel/rxutils/compare/2.0.2...2.1.0) (2022-01-25)
+
+
+### Documentation
+
+* **tapError:** Stop using the deprecated tap syntax in example code ([f621433](https://github.com/Alorel/rxutils/commit/f6214335e449029143c433e7239557e5e46443a0))
+
+
+### Features
+
+* **operators:** Add collectForTime operator ([24fb9a6](https://github.com/Alorel/rxutils/commit/24fb9a656c0a51404ea4d6628df698f646e7ce62))
+* **operators:** Add filterUntilPasses operator ([9ec97a8](https://github.com/Alorel/rxutils/commit/9ec97a882f76e47900345aa79cad06d263d1c154))
+* **operators:** Add innerFind operator ([7f8a5b2](https://github.com/Alorel/rxutils/commit/7f8a5b2b792c30d257078983c1dfc6b7208ea61b))
+* **operators:** Add startWithFactory operator ([d962d63](https://github.com/Alorel/rxutils/commit/d962d63668e5e6d6e9f8e8f7175fbe920d336781))
+* **operators:** Add startWithIfAsynchronous operator ([a47622f](https://github.com/Alorel/rxutils/commit/a47622f23a9f4ef61bfc1a21eca64f75276d946a))
+* **operators:** Add switchTap & mergeTap operators ([1745bea](https://github.com/Alorel/rxutils/commit/1745bea8dd0a45c7c0be6f0aa17dfa4a9968462c))
+* **operators:** Add tapIfEmpty operator ([e0e10ea](https://github.com/Alorel/rxutils/commit/e0e10eacd41999b29a018504a7319ab034639ac1))
+* **operators:** Add tapLast operator ([cad1392](https://github.com/Alorel/rxutils/commit/cad139232ee4f3701de3e2fdd925bd4bf8a2382c))
+
 ## [2.0.2](https://github.com/Alorel/rxutils/compare/2.0.1...2.0.2) (2022-01-21)
 
 
