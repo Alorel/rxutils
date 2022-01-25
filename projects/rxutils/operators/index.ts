@@ -7,6 +7,8 @@ export {takeTruthy} from './takeTruthy';
 export {tapIfEmpty} from './tapIfEmpty';
 export {startWithFactory} from './startWithFactory';
 export {takeFalsy} from './takeFalsy';
+export {switchTap} from './switchTap';
+export {mergeTap} from './mergeTap';
 export {pickProps} from './pickProps';
 export {debounceRandom} from './debounceRandom';
 export {collectForTime} from './collectForTime';
