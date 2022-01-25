@@ -20,7 +20,11 @@ import {tapError} from '@aloreljs/rxutils/operators';
 
 throwError(new Error('foo'))
   .pipe(
-    tap(() => console.log('next'), () => console.log('error'), () => console.log('complete')),
+    tap({
+      complete: () => console.log('complete'),
+      error: () => console.log('error'),
+      next: () => console.log('next')
+    }),
     tapError(e => console.error(e)
   )
   .subscribe();
