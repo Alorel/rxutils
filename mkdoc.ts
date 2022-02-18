@@ -38,7 +38,8 @@ const referenceLinks = {
   Pick: 'https://www.typescriptlang.org/docs/handbook/utility-types.html#picktk',
   PropertyKey: '#',
   SchedulerLike: 'https://rxjs.dev/api/index/interface/SchedulerLike',
-  Subject: 'https://rxjs.dev/api/index/class/Subject'
+  Subject: 'https://rxjs.dev/api/index/class/Subject',
+  Subscriber: 'https://rxjs.dev/api/index/class/Subscriber',
 };
 const CUSTOM_WRITE_PATHS = {
   setDefaultLogger: 'misc/setDefaultLogger.md',

@@ -9,3 +9,4 @@ export {asyncFilter} from './creators/asyncFilter';
 export {observify} from './util/observify';
 export {ObservifyInput} from './types/ObservifyInput';
 export {nextComplete} from './util/nextComplete';
+export {nextSubscriber} from './util/nextSubscriber';
