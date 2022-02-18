@@ -28,4 +28,4 @@ of('foo', 'bar', 'qux')
 // Logs "subscribe foo", "subscribe bar", "subscribe qux", "tap qux"
 ```
 
-*Defined in [operators/tapLast.ts:24:23](https://github.com/Alorel/rxutils/blob/7f8a5b2/projects/rxutils/operators/tapLast.ts#L24).*
+*Defined in [operators/tapLast.ts:24:23](https://github.com/Alorel/rxutils/blob/6924a2a/projects/rxutils/operators/tapLast.ts#L24).*

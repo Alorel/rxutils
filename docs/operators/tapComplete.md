@@ -27,4 +27,4 @@ of('foo')
 // Logs "complete" then "definitely complete"
 ```
 
-*Defined in [operators/tapComplete.ts:23:27](https://github.com/Alorel/rxutils/blob/7f8a5b2/projects/rxutils/operators/tapComplete.ts#L23).*
+*Defined in [operators/tapComplete.ts:23:27](https://github.com/Alorel/rxutils/blob/6924a2a/projects/rxutils/operators/tapComplete.ts#L23).*

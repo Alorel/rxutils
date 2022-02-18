@@ -25,4 +25,4 @@ starter = 'c';
 source.subscribe(console.log); // "c", "a"
 ```
 
-*Defined in [operators/startWithFactory.ts:21:32](https://github.com/Alorel/rxutils/blob/7f8a5b2/projects/rxutils/operators/startWithFactory.ts#L21).*
+*Defined in [operators/startWithFactory.ts:21:32](https://github.com/Alorel/rxutils/blob/6924a2a/projects/rxutils/operators/startWithFactory.ts#L21).*

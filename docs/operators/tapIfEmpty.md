@@ -35,4 +35,4 @@ of(0)
 // tapped is false
 ```
 
-*Defined in [operators/tapIfEmpty.ts:31:26](https://github.com/Alorel/rxutils/blob/7f8a5b2/projects/rxutils/operators/tapIfEmpty.ts#L31).*
+*Defined in [operators/tapIfEmpty.ts:31:26](https://github.com/Alorel/rxutils/blob/6924a2a/projects/rxutils/operators/tapIfEmpty.ts#L31).*

@@ -1,4 +1,4 @@
-# rxutils 2.1.0 documentation
+# rxutils 2.2.0 documentation
 
 ## Creators
 
@@ -47,5 +47,6 @@
 - [finaliseObserver](util/finaliseObserver.md)
 - [nextComplete](util/nextComplete.md)
 - [nextObserver](util/nextObserver.md)
+- [nextSubscriber](util/nextSubscriber.md)
 - [observify](util/observify.md)
 - [NOOP_OBSERVER](util/NOOP_OBSERVER.md)

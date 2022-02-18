@@ -1,6 +1,6 @@
 {
   "name": "@aloreljs/rxutils",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": "index.js",
   "module": "_bundle/esm2015/index.js",
   "es2015": "_bundle/esm2015/index.js",

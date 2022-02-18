@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/Alorel/rxutils/compare/2.1.0...2.2.0) (2022-02-18)
+
+
+### Features
+
+* Add nextSubscriber util fn ([6924a2a](https://github.com/Alorel/rxutils/commit/6924a2a3483c01e03be06577c56d0a2614ad109a))
+
 # [2.1.0](https://github.com/Alorel/rxutils/compare/2.0.2...2.1.0) (2022-01-25)
 
 

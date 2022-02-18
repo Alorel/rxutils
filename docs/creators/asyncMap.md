@@ -33,4 +33,4 @@ of([1, 2, 3])
 // outputs [2, 4, 6]
 ```
 
-*Defined in [creators/asyncMap.ts:28:24](https://github.com/Alorel/rxutils/blob/7f8a5b2/projects/rxutils/creators/asyncMap.ts#L28).*
+*Defined in [creators/asyncMap.ts:28:24](https://github.com/Alorel/rxutils/blob/6924a2a/projects/rxutils/creators/asyncMap.ts#L28).*
