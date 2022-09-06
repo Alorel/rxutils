@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 import type {Observable} from 'rxjs';
-import {of, timer} from 'rxjs';
+import {lastValueFrom, of, timer} from 'rxjs';
 import {mapTo, startWith} from 'rxjs/operators';
 import {asyncFilter} from './asyncFilter';
 import {_tAsyncMapFilterCommon} from './asyncMap.spec';
@@ -77,12 +77,10 @@ describe('creators/asyncFilter', function () {
       inst = new Filterer();
     });
 
-    it('Should apply thisArg', () => {
+    it('Should apply thisArg', async () => {
       const o$ = asyncFilter<any, any>([1, {}], inst.filter, false, inst);
 
-      return o$.toPromise().then((r: any) => {
-        expect(r).to.deep.eq([1]);
-      });
+      expect(await lastValueFrom(o$)).to.deep.eq([1]);
     });
   });
 

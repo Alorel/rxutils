@@ -83,16 +83,16 @@ describe('creators/asyncMap', function () {
           out = [];
 
           asyncMap([1, 2, 3], mapper, emit)
-            .subscribe(
-              v => {
+            .subscribe({
+              complete() {
+                cb();
+              },
+              error: cb,
+              next: v => {
                 emissions++;
                 out = v.slice(0);
-              },
-              cb,
-              () => {
-                cb();
               }
-            );
+            });
         });
 
         it(`Should emit ${expEmissionsString} time(s)`, () => {

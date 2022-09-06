@@ -20,17 +20,17 @@ describe('operators/tapComplete', () => {
     before('Run', cb => {
       of('foo')
         .pipe(
-          tap(
-            () => {
-              nexts++;
+          tap({
+            complete() {
+              ++completions;
             },
-            () => {
-              errors++;
+            error() {
+              ++errors;
             },
-            () => {
-              completions++;
+            next() {
+              ++nexts;
             }
-          ),
+          }),
           tapComplete(() => {
             completions++;
           }),
