@@ -1,6 +1,6 @@
 import type {MonoTypeOperatorFunction, Observable} from 'rxjs';
 import {timer} from 'rxjs';
-import {mapTo, switchMap} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 import {rng} from '../internal/rng';
 
 /**
@@ -18,5 +18,8 @@ import {rng} from '../internal/rng';
  * // Works like debounceTime, but debounces by anywhere between 100 and 200ms every time
  */
 export function debounceRandom<T>(lower: number, upper: number): MonoTypeOperatorFunction<T> {
-  return switchMap((value: T): Observable<T> => timer(rng(lower, upper)).pipe(mapTo(value)));
+  return switchMap((value: T): Observable<T> => (
+    timer(rng(lower, upper))
+      .pipe(map(() => value))
+  ));
 }

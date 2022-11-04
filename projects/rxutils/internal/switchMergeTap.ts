@@ -1,6 +1,6 @@
 import type {MonoTypeOperatorFunction, Observable, ObservableInput} from 'rxjs';
 import {from} from 'rxjs';
-import {last, mapTo} from 'rxjs/operators';
+import {last, map} from 'rxjs/operators';
 
 /** @internal */
 type MapOperator<T> = (callback: (value: T) => Observable<T>) => MonoTypeOperatorFunction<T>;
@@ -14,7 +14,7 @@ export function switchMergeTap<T>(
   return operator(function switchMergeTapInner(value) {
     return from(tapper.call(thisArg, value)).pipe(
       last(null, null),
-      mapTo(value)
+      map(() => value)
     );
   });
 }
