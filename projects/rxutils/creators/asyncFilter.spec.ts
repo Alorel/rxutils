@@ -1,7 +1,7 @@
 import {expect} from 'chai';
 import type {Observable} from 'rxjs';
 import {lastValueFrom, of, timer} from 'rxjs';
-import {mapTo, startWith} from 'rxjs/operators';
+import {map, startWith} from 'rxjs/operators';
 import {asyncFilter} from './asyncFilter';
 import {_tAsyncMapFilterCommon} from './asyncMap.spec';
 
@@ -11,8 +11,10 @@ describe('creators/asyncFilter', function () {
 
   describe('emitIntermediate', () => {
     function filterer(inp: any): Observable<boolean> {
+      const rsp = typeof inp === 'number';
+
       return timer(25).pipe( // eslint-disable-line @typescript-eslint/no-magic-numbers
-        mapTo(typeof inp === 'number'),
+        map(() => rsp),
         startWith(true)
       );
     }

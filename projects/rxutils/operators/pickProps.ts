@@ -1,6 +1,6 @@
 import {isObject, pick} from 'lodash';
 import type {OperatorFunction} from 'rxjs';
-import {map, mapTo} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 /**
  * Map to an object composed of the provided properties. Uses lodash's pick function and therefore accepts deep
@@ -67,5 +67,5 @@ export function pickProps<I extends object, O>(props: PropertyKey[]): OperatorFu
     return map((obj: I): any => isObject(obj) ? pick(obj, props) : {});
   }
 
-  return mapTo({} as any);
+  return map((): any => ({}));
 }
