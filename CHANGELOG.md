@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/Alorel/rxutils/compare/2.2.1...2.2.2) (2022-11-05)
+
+
+### Bug Fixes
+
+* Follow-up for the previous commit ([9057654](https://github.com/Alorel/rxutils/commit/9057654fd9397dab7c5558d36ba54b9dba012e3b))
+
 ## [2.2.1](https://github.com/Alorel/rxutils/compare/2.2.0...2.2.1) (2022-11-05)
 
 

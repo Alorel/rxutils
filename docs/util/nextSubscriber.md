@@ -27,4 +27,4 @@ return new Observable<any>(subscriber => {
 });
 ```
 
-*Defined in [util/nextSubscriber.ts:23:30](https://github.com/Alorel/rxutils/blob/93f4d1c/projects/rxutils/util/nextSubscriber.ts#L23).*
+*Defined in [util/nextSubscriber.ts:23:30](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/util/nextSubscriber.ts#L23).*

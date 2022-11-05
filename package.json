@@ -1,7 +1,7 @@
 {
   "name": "x",
   "private": true,
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Utility functions for rxjs",
   "publishConfig": {
     "access": "public"

@@ -25,4 +25,4 @@ of(['a', 'b'])
   .subscribe(console.log); // undefined
 ```
 
-*Defined in [operators/innerFind.ts:22:25](https://github.com/Alorel/rxutils/blob/93f4d1c/projects/rxutils/operators/innerFind.ts#L22).*
+*Defined in [operators/innerFind.ts:22:25](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/operators/innerFind.ts#L22).*

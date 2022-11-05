@@ -1,4 +1,4 @@
-# rxutils 2.2.1 documentation
+# rxutils 2.2.2 documentation
 
 ## Creators
 
