@@ -21,4 +21,4 @@ of(false, true, 1, 0, 5, undefined, 'foo', null)
 // outputs false, 0, undefined
 ```
 
-*Defined in [operators/takeFalsy.ts:20:25](https://github.com/Alorel/rxutils/blob/6924a2a/projects/rxutils/operators/takeFalsy.ts#L20).*
+*Defined in [operators/takeFalsy.ts:20:25](https://github.com/Alorel/rxutils/blob/93f4d1c/projects/rxutils/operators/takeFalsy.ts#L20).*

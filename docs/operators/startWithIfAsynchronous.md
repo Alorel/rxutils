@@ -26,4 +26,4 @@ of('b')
   .subscribe(console.log); // "b"
 ```
 
-*Defined in [operators/startWithIfAsynchronous.ts:22:39](https://github.com/Alorel/rxutils/blob/6924a2a/projects/rxutils/operators/startWithIfAsynchronous.ts#L22).*
+*Defined in [operators/startWithIfAsynchronous.ts:22:39](https://github.com/Alorel/rxutils/blob/93f4d1c/projects/rxutils/operators/startWithIfAsynchronous.ts#L22).*

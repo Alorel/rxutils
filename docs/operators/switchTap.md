@@ -31,4 +31,4 @@ userLoggingIn$
   });
 ```
 
-*Defined in [operators/switchTap.ts:27:25](https://github.com/Alorel/rxutils/blob/6924a2a/projects/rxutils/operators/switchTap.ts#L27).*
+*Defined in [operators/switchTap.ts:27:25](https://github.com/Alorel/rxutils/blob/93f4d1c/projects/rxutils/operators/switchTap.ts#L27).*

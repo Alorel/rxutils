@@ -1,3 +1,21 @@
+## [2.2.1](https://github.com/Alorel/rxutils/compare/2.2.0...2.2.1) (2022-11-05)
+
+
+### Bug Fixes
+
+* Fix lodash being used instead of lodash-es in ESM builds ([93f4d1c](https://github.com/Alorel/rxutils/commit/93f4d1c28223ba045f81f8882477e2bfa2673cd0))
+
+
+### Maintenance
+
+* Fix deprecated code usages ([6aa2c9a](https://github.com/Alorel/rxutils/commit/6aa2c9aec35e45c236e012ef3ec56c839e32ca8d))
+* Update dev dependencies ([b28a546](https://github.com/Alorel/rxutils/commit/b28a5461157c8f3523bea0ae694f139baf1ee97b))
+
+
+### Tests
+
+* Remove deprecated code usages in tests ([e55c4d8](https://github.com/Alorel/rxutils/commit/e55c4d81aec351acf95929f226b58ac2d66dc7e0))
+
 # [2.2.0](https://github.com/Alorel/rxutils/compare/2.1.0...2.2.0) (2022-02-18)
 
 
