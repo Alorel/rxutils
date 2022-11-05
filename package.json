@@ -84,7 +84,7 @@
   },
   "license": "MIT",
   "main": "index.js",
-  "es2015": "_bundle/esm2015/index.js",
-  "module": "_bundle/esm2015/index.js",
+  "es2015": "_esm2015/index.js",
+  "module": "_esm2015/index.js",
   "types": "index.d.ts"
 }
