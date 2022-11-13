@@ -4,6 +4,7 @@ import type {mergeTap, switchTap} from '../operators';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 
+/** @internal */
 export async function switchMergeTapTestCommon(
   op: typeof switchTap | typeof mergeTap
 ): Promise<Record<'all' | 'asyncTapped', string[]>> {

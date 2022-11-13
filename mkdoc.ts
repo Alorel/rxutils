@@ -49,7 +49,7 @@ const CUSTOM_WRITE_PATHS = {
 const fs = fsSync.promises;
 
 if (fsSync.existsSync(WRITE_PATH)) {
-  fsSync.rmdirSync(WRITE_PATH, {recursive: true});
+  fsSync.rmSync(WRITE_PATH, {recursive: true});
 }
 fsSync.mkdirSync(WRITE_PATH);
 
