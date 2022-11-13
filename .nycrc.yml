@@ -12,5 +12,6 @@ exclude:
   - '**/*.spec.ts'
   - build/**/*
   - test/**/*
+  - projects/**/index.ts
 sourceMap: true
 instrument: true
