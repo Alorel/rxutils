@@ -4,19 +4,6 @@ on:
   - pull_request
 
 jobs:
-  lint:
-    name: Lint
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: NPM Init
-        uses: ./.github/actions/init-npm
-        with:
-          node-version: 18
-          gh-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Lint
-        run: npm run lint
   test:
     runs-on: ${{ matrix.os }}
     name: Test ${{ matrix.os }}/Node ${{ matrix.node }}
@@ -59,6 +46,19 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           parallel-finished: true
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: NPM Init
+        uses: ./.github/actions/init-npm
+        with:
+          node-version: 18
+          gh-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lint
+        run: npm run lint
   release:
     name: Release
     runs-on: ubuntu-latest
