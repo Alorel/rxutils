@@ -1,4 +1,4 @@
-# rxutils 2.2.2 documentation
+# rxutils 2.3.0 documentation
 
 ## Creators
 
@@ -17,6 +17,7 @@
 - [countEmissions](operators/countEmissions.md)
 - [debounceRandom](operators/debounceRandom.md)
 - [distinctUntilDeepChanged](operators/distinctUntilDeepChanged.md)
+- [distinctWithInitial](operators/distinctWithInitial.md)
 - [filterUntilPasses](operators/filterUntilPasses.md)
 - [innerFilter](operators/innerFilter.md)
 - [innerFind](operators/innerFind.md)

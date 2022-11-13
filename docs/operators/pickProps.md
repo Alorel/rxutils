@@ -38,7 +38,7 @@ of(obj)
 // outputs {foo: {bar: 1}, baz: 3}
 ```
 
-*Defined in [operators/pickProps.ts:33:25](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/operators/pickProps.ts#L33).*
+*Defined in [operators/pickProps.ts:33:25](https://github.com/Alorel/rxutils/blob/e14ca99/projects/rxutils/operators/pickProps.ts#L33).*
 ## pickProps\<I, O>(props: [PropertyKey](#)[]): [OperatorFunction](https://rxjs.dev/api/index/interface/OperatorFunction)\<I, O>
 
 Map to an object composed of the provided properties. Uses lodash's pick function and therefore accepts deep
@@ -75,4 +75,4 @@ of(obj)
 // outputs {foo: {bar: 1}, baz: 3}
 ```
 
-*Defined in [operators/pickProps.ts:62:25](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/operators/pickProps.ts#L62).*
+*Defined in [operators/pickProps.ts:62:25](https://github.com/Alorel/rxutils/blob/e14ca99/projects/rxutils/operators/pickProps.ts#L62).*

@@ -31,7 +31,7 @@ of([1, 2, 3])
   .subscribe();
 ```
 
-Full API docs and examples for version 2.2.2 are available [here](https://github.com/Alorel/rxutils/tree/2.2.2/docs).
+Full API docs and examples for version 2.3.0 are available [here](https://github.com/Alorel/rxutils/tree/2.3.0/docs).
 Docs and examples for the latest version are available [here](http://bit.ly/rxutils-master-docs).
 
 # Installation

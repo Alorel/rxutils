@@ -29,4 +29,4 @@ userLoggingIn$
   });
 ```
 
-*Defined in [operators/mergeTap.ts:25:24](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/operators/mergeTap.ts#L25).*
+*Defined in [operators/mergeTap.ts:25:24](https://github.com/Alorel/rxutils/blob/e14ca99/projects/rxutils/operators/mergeTap.ts#L25).*

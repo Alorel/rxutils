@@ -27,4 +27,4 @@ combined.subscribe();
 // Does not output [combined error] [...]
 ```
 
-*Defined in [operators/logError.ts:103:24](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/operators/logError.ts#L103).*
+*Defined in [operators/logError.ts:103:24](https://github.com/Alorel/rxutils/blob/e14ca99/projects/rxutils/operators/logError.ts#L103).*

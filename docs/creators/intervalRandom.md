@@ -23,4 +23,4 @@ intervalRandom(1000, 2000).subscribe(); // emit every 1-2 seconds on the default
 intervalRandom(1000, 2000, asapScheduler).subscribe(); // emit every 1-2 seconds on the ASAP scheduler
 ```
 
-*Defined in [creators/intervalRandom.ts:21:30](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/creators/intervalRandom.ts#L21).*
+*Defined in [creators/intervalRandom.ts:21:30](https://github.com/Alorel/rxutils/blob/e14ca99/projects/rxutils/creators/intervalRandom.ts#L21).*

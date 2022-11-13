@@ -22,4 +22,4 @@ of(1).subscribe(nextObserver(v => {
 }));
 ```
 
-*Defined in [util/nextObserver.ts:19:28](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/util/nextObserver.ts#L19).*
+*Defined in [util/nextObserver.ts:19:28](https://github.com/Alorel/rxutils/blob/e14ca99/projects/rxutils/util/nextObserver.ts#L19).*

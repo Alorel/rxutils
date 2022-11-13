@@ -1,6 +1,6 @@
 {
   "name": "@aloreljs/rxutils",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "main": "index.js",
   "module": "_esm2015/index.js",
   "repository": "git@github.com:Alorel/rxutils.git",

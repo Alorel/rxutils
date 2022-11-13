@@ -1,3 +1,26 @@
+# [2.3.0](https://github.com/Alorel/rxutils/compare/2.2.2...2.3.0) (2022-11-13)
+
+
+### Documentation
+
+* Exclude internal test utility function ([eee566e](https://github.com/Alorel/rxutils/commit/eee566e558cb5184d28632b1b01e53ec817cc676))
+
+
+### Features
+
+* distinctWithInitial operator ([b99f223](https://github.com/Alorel/rxutils/commit/b99f2236bfea45abed7b00ced1a03f5ed177d29e))
+
+
+### Maintenance
+
+* Depend on a more permissive range of lodash ([b6dd2c4](https://github.com/Alorel/rxutils/commit/b6dd2c479d0a86481717e73a0b3da674c6838d6e))
+* Update dev dependencies ([be6eaa3](https://github.com/Alorel/rxutils/commit/be6eaa366798ecda475ae34b434002fb6199652b))
+
+
+### Tests
+
+* Increase timeouts to stabilise switch/mergeTap tests ([01f331e](https://github.com/Alorel/rxutils/commit/01f331eb8ee716cd16f1954c89851f4967730aa3))
+
 ## [2.2.2](https://github.com/Alorel/rxutils/compare/2.2.1...2.2.2) (2022-11-05)
 
 

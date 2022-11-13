@@ -42,4 +42,4 @@ const source$ = of(6) // then emit 6
    });
 ```
 
-*Defined in [operators/collectForTime.ts:39:30](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/operators/collectForTime.ts#L39).*
+*Defined in [operators/collectForTime.ts:39:30](https://github.com/Alorel/rxutils/blob/e14ca99/projects/rxutils/operators/collectForTime.ts#L39).*

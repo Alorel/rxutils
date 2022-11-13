@@ -26,4 +26,4 @@ throwError(new Error('Some error')).subscribe(finaliseObserver(v => {
 }));
 ```
 
-*Defined in [util/finaliseObserver.ts:23:32](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/util/finaliseObserver.ts#L23).*
+*Defined in [util/finaliseObserver.ts:23:32](https://github.com/Alorel/rxutils/blob/e14ca99/projects/rxutils/util/finaliseObserver.ts#L23).*

@@ -20,4 +20,4 @@ of({a: 1}, {a: 1}, {a: 2}, {a: 1})
 // Emits {a: 1}, {a: 2}, {a: 1}
 ```
 
-*Defined in [operators/distinctUntilDeepChanged.ts:20:40](https://github.com/Alorel/rxutils/blob/9057654/projects/rxutils/operators/distinctUntilDeepChanged.ts#L20).*
+*Defined in [operators/distinctUntilDeepChanged.ts:20:40](https://github.com/Alorel/rxutils/blob/e14ca99/projects/rxutils/operators/distinctUntilDeepChanged.ts#L20).*
