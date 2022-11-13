@@ -1,6 +1,7 @@
 export {distinctUntilDeepChanged} from './distinctUntilDeepChanged';
 export {innerMap} from './innerMap';
 export {countEmissions} from './countEmissions';
+export {distinctWithInitial} from './distinctWithInitial';
 export {filterUntilPasses} from './filterUntilPasses';
 export {startWithIfAsynchronous} from './startWithIfAsynchronous';
 export {takeTruthy} from './takeTruthy';
