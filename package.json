@@ -57,7 +57,7 @@
     "cross-env": "^7.0.3",
     "del-cli": "^5.0.0",
     "doctoc": "^2.2.1",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "lazy-get-decorator": "^2.2.1",
     "mocha": "^10.1.0",
     "nyc": "^15.1.0",
