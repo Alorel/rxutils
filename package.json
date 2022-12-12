@@ -59,7 +59,7 @@
     "doctoc": "^2.2.1",
     "eslint": "^8.29.0",
     "lazy-get-decorator": "^2.2.1",
-    "mocha": "^10.1.0",
+    "mocha": "^10.2.0",
     "nyc": "^15.1.0",
     "pluralize": "^8.0.0",
     "rollup": "^2.79.1",
