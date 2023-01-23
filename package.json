@@ -35,7 +35,7 @@
     "@alorel/eslint-config-typescript": "^1.0.17",
     "@alorel/rollup-plugin-copy": "^1.0.2",
     "@alorel/rollup-plugin-copy-pkg-json": "^1.0.3",
-    "@rollup/plugin-commonjs": "^24.0.0",
+    "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/exec": "^6.0.3",
